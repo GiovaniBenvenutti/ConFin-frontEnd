@@ -1,50 +1,43 @@
-.tela{
-    height: 99%;
-    width: 100%;
-}
 
-form[type="titulo"] {
-    border: 0px;
-    border-collapse: collapse;
-    padding: 0;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1.5em;
-    width: 99%;  
-    text-align: center;
-    margin: 20px auto;
-    justify-content: space-around;
-    align-items: center;  
-    background-color: transparent;
-}
-
-form[type="menuBotoes"] {
-    border: 0px solid #140404;
-    border-collapse: collapse;
-    padding: 1px;    
+form[type="menuAbas"]{
+    padding-top: 5px;
     font-family: "Open Sans", sans-serif;
     text-align: left;
     vertical-align: center;
-    width: 99%;    
+    width: auto;    
     background-color: transparent;
+    margin-left: 10px;
+    border-bottom: black 5px;
 }
 
-button[type="menuBotoes"] {    
+
+
+button[type="menuAbas"]{    
     margin-left: 5px, 0px, 0px, 0px;
     width: 125px;
     height: 35px;
     vertical-align: text-top;
-    background-color: rgb(173, 247, 158);
-    color: rgb(5, 5, 5);
+    background-color: white;
+    color: darkgrey;
     font-weight: bold;
     font-size: 10px;    
-    /*border-color: rgb(38, 194, 7);*/
+    border-color: whitesmoke;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
 }
-button:hover[type="menuBotoes"]{
-    background-color: rgb(119, 216, 100);
-    color: rgb(63, 94, 61);
+button:hover[type="menuAbas"]{
+    /* background-color: rgb(176, 233, 176); */
+    color: black;
     font-size: 11px;    
 }
+
+/* CSS */
+button[type="menuAbas"].ativo{
+    /* Cor do botão quando o link do roteador está ativo */
+    background-color:whitesmoke;
+    border-bottom: none;
+    color: black;
+}
+
 
 

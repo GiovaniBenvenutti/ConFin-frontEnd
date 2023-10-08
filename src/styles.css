@@ -1,1 +1,237 @@
-/* You can add global styles to this file, and also import other style files */
+.mat-typography{
+  margin: 0px;
+}
+
+.tela{
+  height: 99%;
+  background-color: rgb(205, 255, 205);
+}
+
+.formGeral{
+  height: 100px;  
+  background-color: whitesmoke;  
+  padding: 5px;
+}
+
+
+/* BOTÃO SELECIONAR DAS TABELAS 
+button {    
+  width: 100px;
+  font-size: 11px;
+  background-color: rgb(82, 255, 47);
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+  border-color: rgb(82, 255, 47);
+  border-radius: 3px;
+  padding: 0px;
+}
+button:hover{
+  background-color: rgb(64, 189, 39);
+  color: rgb(204, 202, 202);
+  font-size: 12px;
+}*/
+
+/* BOTÕES DE CRUD DAS TELAS 
+input[type="button"] { 
+  margin-left: 20px;
+  width: 100px;
+  background-color: rgb(82, 255, 47);
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+  border-color: rgb(64, 199, 37);
+  border-radius: 3px;
+}
+input:hover[type="button"] { 
+  background-color: rgb(51, 165, 28);
+  color: rgb(204, 202, 202);
+  font-size: 16px;
+}
+
+/* CAIXA DE TEXTO PARA RAZÃO SOCIAL NAS TELAS 
+input[type="text"] {
+    width: 500px;
+    height: 18px;
+    font-size: 12px;
+    margin: 16px 20px 10px 20px;
+    background-color: rgb(175, 255, 159);
+    color: rgb(0, 32, 5);
+    border-color: rgb(143, 204, 131);
+}
+input:hover[type="text"] {
+  font-size: 14px;
+  height: 20px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  background-color: rgb(136, 235, 116);
+}
+input:focus[type="text"] {
+  background-color: rgb(179, 248, 164);
+}
+
+/* CAIXA DE TEXTO PARA INFAD NAS TELAS 
+input[type="text2"] {
+  width: 500px;
+  height: 18px;
+  font-size: 12px;
+  padding-left: 20px;
+  margin: 8px 20px 20px 20px;
+  background-color: rgb(250, 250, 253);
+  color: rgb(5, 5, 5);
+  border-color: rgb(175, 255, 159);
+}
+input:hover[type="text2"] {
+  font-size: 14px;
+  height: 20px;
+  margin-top: 6px;
+}
+
+/* DATE PICK BOX DAS TELAS 
+input[type="date"] {
+  border: 1px solid #fdfcfc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  width: 100px;
+  margin: 10px;
+  background-color: rgb(190, 247, 193);
+}
+input:hover[type="date"] {
+  font-size: 14px;
+  background-color: rgb(190, 247, 193);
+}
+
+/* CAMPO DE VALOR 
+input[type="number"] {
+  width: 120px;
+  height: 20px;
+  font-size: 12px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: right;
+  padding-right: 2px;
+  background-color: rgb(251, 253, 250);
+  color: rgb(5, 5, 5);
+  border-color: rgb(175, 255, 159);
+}
+input:hover[type="number"] {
+  height: 25px;
+  border-color: rgb(113, 253, 85);
+  font-size: 14px;
+}
+
+/* SELECT DE CLASSIFICAÇÕES 
+select.form-control {
+  width: 240px;
+  height: 25px;
+  font-size: 10px;
+  color: #333;
+  padding: 2px 15px;
+  margin-right: 20px;
+  border-radius: 3px;
+  border-color: rgb(128, 221, 109);
+  background-color: rgb(192, 250, 180);
+}
+select.form-control:hover {
+  background-color: rgb(141, 214, 127);
+}
+select.form-control:focus {
+  font-size: 12px;
+  height: 30px;
+}
+
+
+
+/* TABELA PRINCIPAL 
+table {
+  padding-left: 10px;
+  padding-right: 0px;
+  width: 100%;  
+  font-size: 11px; 
+}
+  
+/* mudaa cor das linha de numero par na tabela  
+table tr:nth-child(odd) {
+  background-color: #e3fddc;
+}
+table tr {  
+  background-color: #f8f8f8;
+}
+table tr:hover {
+  font-weight: bold;
+}
+  
+table th, table td {
+  padding: .300em;
+  text-align: center;
+}
+
+table th {
+  background-color: #71dd88;
+  font-size: 1,8em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+*/
+
+/*
+
+
+  
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+    background-color: blue;
+  }
+  
+  table caption {
+    font-size: 1.3em;
+  }
+    
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 0px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    display: inline-block;
+    width: 100%;
+  }
+    
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: inline-block;
+    margin-bottom: .625em;
+    width: 100%;
+  }
+    
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    font-size: 1em;
+    text-align: right;
+    height: 10px;
+    width: 100%;
+  }
+    
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+   
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*/

@@ -1,0 +1,107 @@
+<!--
+    POSSO USAR O AUTOCOMPLETE PRA INPUT DA RAZAO SOCIAL, ASSIM JA DESTACA SE O NOME JÁ EXISTE OU NAO
+<autocomplete [entisArray]="entidadesArray"></autocomplete>
+-->
+
+<form class="formGeral">
+    <input
+        type="text"
+        placeholder="Razão Social"
+        class="form-control"
+        name="Razão Social"
+        [(ngModel)]="entidade.razaosocial">      
+
+
+        <select class="form-control" name="Classe" [(ngModel)]="entidade.classe" 
+        (ngModelChange)="onClasseChange($event)">
+            <option value="" disabled selected> Classe </option>
+            <option *ngFor="let classe of classes" [value]="classe">{{classe}}</option>
+          </select>
+          
+        <select class="form-control" name="subClasse" [(ngModel)]="entidade.subclasse" 
+        (ngModelChange)="onSubClasseChange($event)">
+            <option value="" disabled selected> SubClasse </option>
+            <option *ngFor="let subClasse of subClasses" [value]="subClasse">{{subClasse}}</option>
+          </select>
+                         
+        <select class="form-control" name="tipo" [(ngModel)]="entidade.tipo">
+            <option value="" disabled selected> Tipo </option>
+            <option *ngFor="let tipo of tipos" [value]="tipo">{{tipo}}</option>
+          </select>
+        <td></td>
+    
+
+    <input
+        type="text2"
+        placeholder="Informações adicionais"
+        class="form-control"
+        name="infad"
+        [(ngModel)]="entidade.infad">
+
+    <input
+        type="button"
+        value="Cadastrar"
+        *ngIf="btnCadastro"        
+        class="btn btn-primary"
+        (click)="cadastrar()">
+    
+    <input
+        type="button"
+        value="Buscar"
+        *ngIf="btnCadastro"       
+        class="btn btn-primary"
+        (click)="buscar()">
+    
+    <input
+        type="button"
+        value="Alterar"
+        *ngIf="!btnCadastro"        
+        class="btn btn-warning"
+        (click)="editar()">
+
+    <input
+        type="button"
+        value="Remover"
+        *ngIf="!btnCadastro"        
+        class="btn btn-danger"
+        (click)="remover()">
+
+    <input
+        type="button"
+        value="Cancelar"
+        *ngIf="!btnCadastro"        
+        class="btn btn-secondary"
+        (click)="cancelar()">
+
+
+</form>
+
+<div> <!-- style="padding: 20px; display: inline-block"> -->
+    <table>
+        <thead>
+            <tr>
+                <th>id_entidade</th>
+                <th>Razão_Social</th>
+                <th>CLASSE</th>
+                <th>SUBCLASSE</th>
+                <th>TIPO</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let e of entidadesArray; index as i">
+                <td>{{e.identidade}}</td>
+                <td>{{e.razaosocial}}</td>
+                <td>{{e.classe}}</td>
+                <td>{{e.subclasse}}</td>
+                <td>{{e.tipo}}</td>
+                <td>
+                    <button class="btn btn-success" (click)="selecionarEntidade(i)">
+                        Selecionar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
