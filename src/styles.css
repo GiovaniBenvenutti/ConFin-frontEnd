@@ -3,12 +3,13 @@
 }
 
 .tela{
-  height: 99%;
+  height: auto;
   background-color: rgb(205, 255, 205);
+  padding: 0px 5px 0px 5px;
 }
 
 .formGeral{
-  height: 100px;  
+  height: 55px;  
   background-color: whitesmoke;  
   padding: 5px;
 }
@@ -45,7 +46,7 @@ input:hover[type="button"] {
   background-color: rgb(51, 165, 28);
   color: rgb(204, 202, 202);
   font-size: 16px;
-}
+}*/
 
 /* CAIXA DE TEXTO PARA RAZÃO SOCIAL NAS TELAS 
 input[type="text"] {
@@ -66,7 +67,7 @@ input:hover[type="text"] {
 }
 input:focus[type="text"] {
   background-color: rgb(179, 248, 164);
-}
+}*/
 
 /* CAIXA DE TEXTO PARA INFAD NAS TELAS 
 input[type="text2"] {
@@ -83,7 +84,7 @@ input:hover[type="text2"] {
   font-size: 14px;
   height: 20px;
   margin-top: 6px;
-}
+}*/
 
 /* DATE PICK BOX DAS TELAS 
 input[type="date"] {
@@ -98,7 +99,7 @@ input[type="date"] {
 input:hover[type="date"] {
   font-size: 14px;
   background-color: rgb(190, 247, 193);
-}
+}*/
 
 /* CAMPO DE VALOR 
 input[type="number"] {
@@ -118,7 +119,7 @@ input:hover[type="number"] {
   height: 25px;
   border-color: rgb(113, 253, 85);
   font-size: 14px;
-}
+}*/
 
 /* SELECT DE CLASSIFICAÇÕES 
 select.form-control {
@@ -138,19 +139,19 @@ select.form-control:hover {
 select.form-control:focus {
   font-size: 12px;
   height: 30px;
-}
+}*/
 
 
 
-/* TABELA PRINCIPAL 
+/* TABELA PRINCIPAL */
 table {
-  padding-left: 10px;
+  padding-left: 0px;
   padding-right: 0px;
-  width: 100%;  
+  width: 100%;
   font-size: 11px; 
 }
   
-/* mudaa cor das linha de numero par na tabela  
+/* mudaa cor das linha de numero par na tabela */  
 table tr:nth-child(odd) {
   background-color: #e3fddc;
 }
@@ -172,13 +173,7 @@ table th {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-*/
-
-/*
-
-
-  
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   table {
     border: 0;
     background-color: blue;

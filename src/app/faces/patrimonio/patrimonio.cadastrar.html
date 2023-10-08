@@ -4,7 +4,7 @@
 -->
 
 <form class="formGeral">
-    <div style="padding: 20px; display: inline-block">
+    <div style="padding: 0px; display: inline-block">
         <autocomplete *ngIf="entidadesArray" [entidades]="entidadesArray"
             (entidadeSelecionada)="entidadeEscolhida($event)"></autocomplete>
     </div>
@@ -50,7 +50,7 @@
     
 </form>
 
-<div> <!-- style="height: 450px; overflow: auto;" -->
+<section style="height: 400px; overflow: auto;">
     <table>
         <thead>
             <tr>
@@ -79,4 +79,4 @@
         </tbody>
     
     </table>
-</div>
+</section>
