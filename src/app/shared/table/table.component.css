@@ -17,6 +17,7 @@ table {
   font-size: 11px; 
 }
   
+
 /* mudaa cor das linha de numero par na tabela */  
 table tr:nth-child(odd) {
   background-color: #e3fddc;
