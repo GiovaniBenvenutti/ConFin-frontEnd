@@ -4,7 +4,7 @@
 
 @include mat-core();
 
-theme mat-light-theme($primary-palette, $acsent-palette, $warn-palette);
+$theme mat-light-theme($primary-palette, $acsent-palette, $warn-palette);
 
 @include angular-material-theme(theme)
 */
