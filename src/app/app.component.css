@@ -34,7 +34,7 @@ button:hover[type="menuAbas"]{
 /* CSS */
 button[type="menuAbas"].ativo{
     /* Cor do botão quando o link do roteador está ativo */
-    background-color:whitesmoke;
+    background-color:rgb(250, 250, 250);  
     border-bottom: none;
     color: black;
 }

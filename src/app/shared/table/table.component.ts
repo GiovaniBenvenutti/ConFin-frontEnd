@@ -12,26 +12,46 @@ import {MatTableModule} from '@angular/material/table';
   imports: [MatTableModule],
 })
 export class TableComponent {
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['id_entidade', 'razaoSocial', 'classe', 'subClasse', 'tipo', 'selecionar'];
   dataSource = ELEMENT_DATA;
+
+
+  
+selecionarEntidade(): void {
+
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  razaoSocial: string;
+  id_entidade: number;
+  classe: number;
+  subClasse: string;
+  tipo: string;
+  selecionar: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {id_entidade: 1, razaoSocial: 'Hydrogen', classe: 1.0079, subClasse: 'H', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 2, razaoSocial: 'Helium', classe: 4.0026, subClasse: 'He', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 3, razaoSocial: 'Lithium', classe: 6.941, subClasse: 'FORNECEDORES', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 4, razaoSocial: 'Beryllium', classe: 9.0122, subClasse: 'Be', tipo: 'nFORNECEDORES', selecionar: 'botão'},
+  {id_entidade: 5, razaoSocial: 'Boron', classe: 10.811, subClasse: 'B', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 6, razaoSocial: 'Carbon', classe: 1000000000002.0107, subClasse: 'C', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 7, razaoSocial: 'Nitrogen', classe: 14.0067, subClasse: 'N', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 8, razaoSocial: 'Oxygen', classe: 15.9994, subClasse: 'O', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 9, razaoSocial: 'Fluorine', classe: 18.9984, subClasse: 'F', tipo: 'n', selecionar: 'botão'},
+  {id_entidade: 10, razaoSocial: 'Neon', classe: 20.1797, subClasse: 'Ne', tipo: 'n', selecionar: 'botão'},
 ];
+
+
