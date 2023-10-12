@@ -24,6 +24,7 @@ table tr:nth-child(odd) {
 }
 table tr {  
   background-color: #f8f8f8;
+  font-size: 11px;
 }
 table tr:hover {
   font-weight: bold;
@@ -36,7 +37,7 @@ table th, table td {
 
 table th {
   background-color: #71dd88;
-  font-size: 1,8em;
+  font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
   font-weight: bold;

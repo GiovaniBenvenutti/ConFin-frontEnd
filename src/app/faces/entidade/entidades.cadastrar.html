@@ -76,7 +76,7 @@
 
 </form>
 
-<app-table></app-table>
+<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" ></app-table>
 
 <div style="height: 200px; overflow: auto;">
     <table>

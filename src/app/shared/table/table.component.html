@@ -3,32 +3,32 @@
         <table class="tabelaLancamentos" mat-table [dataSource]="dataSource">
     
         <!-- Position Column -->
-        <ng-container matColumnDef="id_entidade">
-            <th mat-header-cell *matHeaderCellDef> id_entidade </th>
-            <td mat-cell *matCellDef="let element"> {{element.id_entidade}} </td>
+        <ng-container matColumnDef="idEntidade">
+            <th mat-header-cell *matHeaderCellDef> id entidade </th>
+            <td mat-cell *matCellDef="let entidade"> {{entidade.identidade}} </td>
         </ng-container>
     
         <!-- Name Column -->
         <ng-container matColumnDef="razaoSocial">
-            <th mat-header-cell *matHeaderCellDef> Razão_Social </th>
-            <td mat-cell *matCellDef="let element"> {{element.razaoSocial}} </td>
+            <th mat-header-cell *matHeaderCellDef> Razão Social </th>
+            <td mat-cell *matCellDef="let element"> {{element.razaosocial}} </td>
         </ng-container>
     
         <!-- Weight Column -->
         <ng-container matColumnDef="classe">
-            <th mat-header-cell *matHeaderCellDef> CLASSE </th>
+            <th mat-header-cell *matHeaderCellDef> classe </th>
             <td mat-cell *matCellDef="let element"> {{element.classe}} </td>
         </ng-container>
-    
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="subClasse">
-            <th mat-header-cell *matHeaderCellDef> SUB-CLASSE </th>
-            <td mat-cell *matCellDef="let element"> {{element.subClasse}} </td>
+
+        <ng-container matColumnDef="sub">
+            <th mat-header-cell *matHeaderCellDef> sub-Classe </th>
+            <td mat-cell *matCellDef="let element"> {{element.subclasse}} </td>
         </ng-container>
+    
     
         <!-- Symbol Column -->
         <ng-container matColumnDef="tipo">
-            <th mat-header-cell *matHeaderCellDef> TIPO </th>
+            <th mat-header-cell *matHeaderCellDef> tipo </th>
             <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
         </ng-container>
 

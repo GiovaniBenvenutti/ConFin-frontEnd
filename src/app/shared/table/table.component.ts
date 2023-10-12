@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import { Entidade } from 'src/app/model/entidades.component';
 
 /**
  * @title Table with sticky header
@@ -12,25 +13,26 @@ import {MatTableModule} from '@angular/material/table';
   imports: [MatTableModule],
 })
 export class TableComponent {
-  displayedColumns = ['id_entidade', 'razaoSocial', 'classe', 'subClasse', 'tipo', 'selecionar'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns = ['idEntidade', 'razaoSocial', 'classe', 'sub', 'tipo', 'selecionar'];
+  @Input() dataSource: any[] = [];
+  @Output() entidadeSelecionada = new EventEmitter<Entidade>();  
 
+  entidade: Entidade = new Entidade();
+
+  constructor() {};
+
+  selecionar(): void {}
+  selecionarEntidade(): void {}
+
+  ngOnInit() {}
+
+}
+
+/*
 
   
-selecionarEntidade(): void {
 
-}
-
-
-
-
-
-
-
-
-
-
-}
+  //entidades: Entidade[] = [];
 
 export interface PeriodicElement {
   razaoSocial: string;
@@ -53,5 +55,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {id_entidade: 9, razaoSocial: 'Fluorine', classe: 18.9984, subClasse: 'F', tipo: 'n', selecionar: 'botão'},
   {id_entidade: 10, razaoSocial: 'Neon', classe: 20.1797, subClasse: 'Ne', tipo: 'n', selecionar: 'botão'},
 ];
-
-
+*/
