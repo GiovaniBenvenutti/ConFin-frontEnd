@@ -24,6 +24,7 @@ export class PrincipalEntidadeComponent {
   entidadesArray: Entidade[] = [];
   EnumClasse: any;
   SubClasse: any;
+  pickedEntidade: Entidade = new Entidade();
   
   onClasseChange(selectedValue1: string) {
     // Access a property or method of the SubClasse constant to update the subClasses array
@@ -35,6 +36,15 @@ export class PrincipalEntidadeComponent {
   }    
 
   constructor(public servicoEntidade: EntidadesService) {};
+
+  
+  entidadeEscolhida(ent: Entidade) {
+    this.entidade = ent;
+    this.btnCadastro = false;
+    this.tabela = false;
+  }
+
+
 
   selecionar(): void {
     this.servicoEntidade.selecionar()

@@ -1,0 +1,45 @@
+.container {
+    height: 200px;
+    overflow: auto;
+}  
+
+.divTable{
+    margin: 10px 0px 20px 0px;
+    width: 100%;
+}
+
+
+/* TABELA PRINCIPAL */
+table {
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 98%;
+  font-size: 11px; 
+}
+  
+
+/* mudaa cor das linha de numero par na tabela */  
+table tr:nth-child(odd) {
+  background-color: #e3fddc;
+}
+table tr {  
+  background-color: #f8f8f8;
+  font-size: 11px;
+}
+table tr:hover {
+  font-weight: bold;
+}
+  
+table th, table td {
+  padding: .300em;
+  text-align: center;
+}
+
+table th {
+  background-color: #71dd88;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+

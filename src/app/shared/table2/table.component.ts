@@ -6,13 +6,13 @@ import { Entidade } from 'src/app/model/entidades.component';
  * @title Table with sticky header
  */
 @Component({
-  selector: 'app-table',
+  selector: 'app-table2',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
   standalone: true,
   imports: [MatTableModule],
 })
-export class TableComponent {
+export class TableComponent2 {
   displayedColumns = ['identidade', 'razaosocial', 'classe', 'subclasse', 'tipo', 'selecionar'];
   @Input() dataSource: any[] = [];
   @Output() entidadeSelecionada = new EventEmitter<Entidade>();  

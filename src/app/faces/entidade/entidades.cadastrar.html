@@ -76,7 +76,13 @@
 
 </form>
 
-<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" ></app-table>
+<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" 
+    (entidadeSelecionada)="entidadeEscolhida($event)"></app-table>
+
+<app-table2 *ngIf="entidadesArray" [dataSource]="entidadesArray" 
+    (entidadeSelecionada)="entidadeEscolhida($event)" ></app-table2>
+
+<!--
 
 <div style="height: 200px; overflow: auto;">
     <table>
@@ -111,3 +117,4 @@
     
     </table>
 </div>
+-->

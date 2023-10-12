@@ -52,6 +52,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { DialogBoxComponent } from './shared/dialog-box/dialog-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TableComponent2 } from './shared/table2/table.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressSpinnerModule,
 
     TableComponent,
+    TableComponent2,
     MatTableModule,
 
     TextFieldComponent,
