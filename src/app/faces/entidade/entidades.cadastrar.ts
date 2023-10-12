@@ -22,11 +22,12 @@ export class PrincipalEntidadeComponent {
   btnBusca: boolean = true;
   tabela: boolean = true;
   entidadesArray: Entidade[] = [];
+  exibirColunas: string[] = ['identidade', 'razaosocial', 'classe', 'subclasse', 'tipo'];
   EnumClasse: any;
   SubClasse: any;
   pickedEntidade: Entidade = new Entidade();
-  
-  onClasseChange(selectedValue1: string) {
+    
+  onClasseChange(selectedValue1: string): void {
     // Access a property or method of the SubClasse constant to update the subClasses array
     this.subClasses = exibeSubClasse(selectedValue1, SubClasse);
   }      

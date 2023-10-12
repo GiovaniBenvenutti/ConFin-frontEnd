@@ -13,6 +13,7 @@ import { PrincipalPatrimonioComponent } from './faces/patrimonio/patrimonio.cada
 import { SearchBoxComponent } from './shared/search-box/search-box.component';
 
 import { TableComponent } from './shared/table/table.component';
+import { TableComponent2 } from './shared/table2/table2.component';
 import {MatTableModule} from '@angular/material/table';
 
 import { AuthComponent } from './servico/auth/auth.component';
@@ -52,7 +53,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { DialogBoxComponent } from './shared/dialog-box/dialog-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { TableComponent2 } from './shared/table2/table.component';
+
 
 
 @NgModule({

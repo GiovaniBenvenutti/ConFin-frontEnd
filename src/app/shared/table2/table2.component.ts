@@ -7,8 +7,8 @@ import { Entidade } from 'src/app/model/entidades.component';
  */
 @Component({
   selector: 'app-table2',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  templateUrl: './table2.component.html',
+  styleUrls: ['./table2.component.css'],
   standalone: true,
   imports: [MatTableModule],
 })
