@@ -54,7 +54,7 @@ import { MatCardModule } from '@angular/material/card';
 import { DialogBoxComponent } from './shared/dialog-box/dialog-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -72,7 +72,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-
+    CommonModule,
     SearchBoxComponent,
     AutocompleteFilterExample,
     MatAutocompleteModule,

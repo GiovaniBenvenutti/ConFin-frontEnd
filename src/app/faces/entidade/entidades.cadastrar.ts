@@ -1,10 +1,11 @@
-import { Component, } from '@angular/core';
+import { Component, ViewChild, } from '@angular/core';
 import { Entidade } from '../../model/entidades.component';
 import { EntidadesService } from '../../servico/entidades.service';
 import { EnumClasse } from "../../utils/classe.enum";
 import { SubClasse } from '../../utils/subclasse.const';
 import { exibeSubClasse } from '../../utils/subclasse.const';
 import { exibeTipo } from '../../utils/tipo.const';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-principal-entidade',
@@ -22,7 +23,7 @@ export class PrincipalEntidadeComponent {
   btnBusca: boolean = true;
   tabela: boolean = true;
   entidadesArray: Entidade[] = [];
-  exibirColunas: string[] = ['identidade', 'razaosocial', 'classe', 'subclasse', 'tipo'];
+  exibirColunas: string[] =  ['identidade', 'razaosocial', 'classe', 'subclasse', 'tipo', 'infad'];
   EnumClasse: any;
   SubClasse: any;
   pickedEntidade: Entidade = new Entidade();
@@ -37,15 +38,12 @@ export class PrincipalEntidadeComponent {
   }    
 
   constructor(public servicoEntidade: EntidadesService) {};
-
   
   entidadeEscolhida(ent: Entidade) {
     this.entidade = ent;
     this.btnCadastro = false;
     this.tabela = false;
   }
-
-
 
   selecionar(): void {
     this.servicoEntidade.selecionar()
