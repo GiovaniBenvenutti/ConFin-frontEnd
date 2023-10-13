@@ -1,10 +1,10 @@
 .container {
-    height: 290px;
+    height: 500px;
     overflow: auto;
 }  
 
 .divTable{
-    margin: 10px 0px 20px 0px;
+    margin: 0px 0px 20px 5px;
     width: 100%;
 }
 
@@ -39,7 +39,7 @@ table th {
   background-color: #71dd88;
   font-size: 12px;
   letter-spacing: .1em;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: bold;
 }
 

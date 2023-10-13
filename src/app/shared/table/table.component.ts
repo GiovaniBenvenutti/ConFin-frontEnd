@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import {MatTable, MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -9,20 +9,19 @@ import {MatTableModule} from '@angular/material/table';
   imports: [MatTableModule],
 })
 export class TableComponent {
-  /*@Input()*/ displayedColumns: string[] = ['identidade', 'razaosocial', 'classe', 'subclasse', 'tipo'];
+  @Input() displayedColumns: any[] = [];
   @Input() dataSource: any[] = [];
-  @Output() entidadeSelecionada = new EventEmitter<any>();  
+  @Output() elementSelected = new EventEmitter<any>();  
 
-  constructor() {};
-
-  
+  constructor() { };  
 
   selecionarElement(element: any): void {
-    this.entidadeSelecionada.emit(element);
+    this.elementSelected.emit(element);    
   }
 
   ngOnInit() {
-    this.displayedColumns.push('selecionar');
+    this.displayedColumns.push('selecionar');        
+
   }
 
 }

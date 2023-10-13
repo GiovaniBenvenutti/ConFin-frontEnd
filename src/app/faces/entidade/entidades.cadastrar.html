@@ -76,12 +76,13 @@
 
 </form>
 
-<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" 
-    (entidadeSelecionada)="entidadeEscolhida($event)"></app-table>
+<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" [displayedColumns]="exibirColunas"
+    (elementSelected)="entidadeEscolhida($event)"></app-table>
+
+
+<!--
 
 <app-table2 *ngIf="entidadesArray" [dataSource]="entidadesArray" 
     (entidadeSelecionada)="entidadeEscolhida($event)" ></app-table2>
-
-<!--
-    [displayedColumns]="exibirColunas"
+    
 -->
