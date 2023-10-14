@@ -51,10 +51,11 @@
 </form>
 
 
-<app-table *ngIf="PatrimonioArray" [dataSource]="PatrimonioArray" [displayedColumns]="exibirColunas"
+<app-table *ngIf="PatrimonioArray" [dataSource]="PatrimonioArray" 
+[displayedColumns]="exibirColunas" [entidadesArray]="entidadesArray"
     (elementSelected)="entidadeEscolhida($event)"></app-table>
 
-
+<!--
 <section style="height: 400px; overflow: auto;">
     <table>
         <thead>
@@ -85,3 +86,4 @@
     
     </table>
 </section>
+-->

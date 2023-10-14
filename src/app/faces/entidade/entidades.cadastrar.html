@@ -76,7 +76,9 @@
 
 </form>
 
-<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" [displayedColumns]="exibirColunas"
+<app-table *ngIf="entidadesArray" [dataSource]="entidadesArray" 
+                                [displayedColumns]="exibirColunas"
+                                [entidadesArray]="entidadesArray"
     (elementSelected)="entidadeEscolhida($event)"></app-table>
 
 

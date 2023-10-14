@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor} from '@angular/common';
+import { Entidade } from 'src/app/model/entidades.component';
 
 @Component({
   selector: 'app-table',
@@ -12,31 +13,47 @@ import {NgFor} from '@angular/common';
 export class TableComponent {
   @Input() displayedColumns: any[] = [];
   @Input() dataSource: any[] = [];
-  @Output() elementSelected = new EventEmitter<any>();  
+  @Input() entidadesArray: Entidade[] = [];
+  @Output() elementSelected = new EventEmitter<any>();   
 
   columns:any[] = [];
 
-  constructor() { };  
+  constructor() {};
 
   selecionarElement(element: any): void {
     this.elementSelected.emit(element);    
   }
+  
+  achaRazao(p: any): string {
+    let razao: string = this.entidadesArray.find(e => e.identidade === p)?.razaosocial!;    
+    //console.log(p);
+    return razao ;
+  }
 
-  ngOnInit() {   
+  ngOnInit() {      
     // Limpa o array columns
     this.columns = [];
   
-    // Preenche o array columns dinamicamente
-    for (let column of this.displayedColumns) {
+     // Preenche o array columns dinamicamente
+     for (let column of this.displayedColumns) {
       this.columns.push({
         columnDef: column,
         header: column,
-        cell: (element: any) => `${element[column]}`
+        cell: (element: any) => {
+          if (column === 'identidade') {
+            return this.achaRazao(element[column]);            
+          } else {
+            return `${element[column]}`;
+          }
+        }
       });
     }
-
     this.displayedColumns.push('selecionar');
 
+    console.log(this.dataSource);
   }  
+
+  
+  
 
 }

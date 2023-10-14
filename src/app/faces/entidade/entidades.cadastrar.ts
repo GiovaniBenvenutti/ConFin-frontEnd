@@ -23,7 +23,7 @@ export class PrincipalEntidadeComponent {
   btnBusca: boolean = true;
   tabela: boolean = true;
   entidadesArray: Entidade[] = [];
-  exibirColunas: string[] = ['identidade', 'razaosocial', 'classe', 'subclasse'];
+  exibirColunas: string[] = ['razaosocial', 'classe', 'subclasse', 'tipo'];
   EnumClasse: any;
   SubClasse: any;
   pickedEntidade: Entidade = new Entidade();

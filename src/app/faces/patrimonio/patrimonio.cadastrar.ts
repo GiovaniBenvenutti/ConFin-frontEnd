@@ -39,9 +39,11 @@ export class PrincipalPatrimonioComponent {
     );
   }
 
-  entidadeEscolhida(ent: Entidade) {
-    this.pickedEntidade = ent //this.entidadesArray.find(e => e.identidade === ent.identidade)!;
-    this.patrimonio.identidade = ent.identidade;
+  
+
+  entidadeEscolhida(ent: any) {
+    this.patrimonio = ent //this.entidadesArray.find(e => e.identidade === ent.identidade)!;
+    //this.patrimonio.identidade = ent.identidade;
     
     // console.log(minhaEntidade);
   }
