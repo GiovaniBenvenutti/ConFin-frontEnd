@@ -1,4 +1,4 @@
-
+<!--
 <div class="divTable">
     <section class="container mat-elevation-z8" tabindex="0">
         <table id="table" class="tabelaLancamentos" mat-table [dataSource]="dataSource">
@@ -7,6 +7,12 @@
             <th mat-header-cell *matHeaderCellDef> id entidade </th>
             <td mat-cell *matCellDef="let element"> {{element.identidade}} </td>
         </ng-container>
+
+        <ng-container matColumnDef="identidade2">
+            <th mat-header-cell *matHeaderCellDef> id entidade dinamica </th>
+            <td mat-cell *matCellDef="let element"> {{element.identidade}} </td>
+        </ng-container>
+        
                    
         <ng-container matColumnDef="razaosocial">
             <th mat-header-cell *matHeaderCellDef> Razão Social </th>
@@ -46,35 +52,41 @@
     
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" style="height: 10px"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="height: 10px"></tr>
+
+
+
+        
+        <thead>
+            <tr>
+                <th>id_patrimonio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of PatrimonioArray; index as i">
+                <td>{{ p.idpatrimonio }}</td>
+            </tr>
+        </tbody>
+       
+
+
+
+
         </table>
     </section>
 </div>
+ -->
 
-
-
-
-
-<!--
-
-    <section class="container mat-elevation-z8" tabindex="0">
-        <table class="tabelaLancamentos" mat-table [dataSource]="dataSource">
-
-            <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-                <th mat-header-cell *matHeaderCellDef>
-                {{column.header}}
-                </th>
-                <td mat-cell *matCellDef="let row">
-                {{column.cell(row)}}
-                </td>
-            </ng-container>
-
-                
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" style="height: 10px"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="height: 10px"></tr>
-         </table>
-    </section>
-
--->
-
-
-
+<table mat-table [dataSource]="dataSource2" class="mat-elevation-z8 demo-table">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+      <th mat-header-cell *matHeaderCellDef>
+        {{column.header}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{column.cell(row)}}
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+  </table>
+  
