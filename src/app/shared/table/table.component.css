@@ -39,7 +39,7 @@ table th {
   background-color: #71dd88;
   font-size: 12px;
   letter-spacing: .1em;
-  /*text-transform: uppercase;*/
+  text-transform: uppercase;
   font-weight: bold;
 }
 

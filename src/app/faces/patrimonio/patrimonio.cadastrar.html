@@ -50,6 +50,11 @@
     
 </form>
 
+
+<app-table *ngIf="PatrimonioArray" [dataSource]="PatrimonioArray" [displayedColumns]="exibirColunas"
+    (elementSelected)="entidadeEscolhida($event)"></app-table>
+
+
 <section style="height: 400px; overflow: auto;">
     <table>
         <thead>

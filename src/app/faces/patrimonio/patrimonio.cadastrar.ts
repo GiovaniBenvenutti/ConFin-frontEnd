@@ -21,7 +21,8 @@ export class PrincipalPatrimonioComponent {
   btnBusca: boolean = true;
   buscando: boolean = false;
   tabela: boolean = true;
-  PatrimonioArray: Patrimonio[] = [];  
+  PatrimonioArray: Patrimonio[] = []; 
+  exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
   
   constructor(private servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
   
