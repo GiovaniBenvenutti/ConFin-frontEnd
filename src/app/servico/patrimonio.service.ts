@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Patrimonio } from '../model/patrimonio.component';
-import { Observable, take } from 'rxjs';
+import { Observable, delay, first, take, tap } from 'rxjs';
 import { Entidade } from '../model/entidades.component';
 
 
@@ -14,8 +14,11 @@ export class PatrimonioService {
   
   constructor(private http: HttpClient) { }
 
-  public selecionar(): Observable<Patrimonio[]> {
-    return this.http.get<Patrimonio[]>(this.url);
+  public selecionar(): Observable<Patrimonio[]> {    
+    return this.http.get<Patrimonio[]>(this.url).pipe(
+      first(),
+      delay(1000)
+    );
   }
 
   public cadastrar(obj: Patrimonio): Observable<Patrimonio> {

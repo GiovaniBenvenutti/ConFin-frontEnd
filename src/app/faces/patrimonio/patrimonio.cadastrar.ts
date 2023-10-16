@@ -1,17 +1,16 @@
 import { AutocompleteFilterExample } from './../../shared/autocomplete-filter-example/autocomplete-filter-example.component';
 import { EntidadesService } from './../../servico/entidades.service';
-import { Component, ViewChild } from '@angular/core';
+import { Component, NgZone, ViewChild } from '@angular/core';
 import { Patrimonio } from '../../model/patrimonio.component';
 import { PatrimonioService } from '../../servico/patrimonio.service';
 import { Entidade } from '../../model/entidades.component';
-
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-principal-patrimonio',
   templateUrl: './patrimonio.cadastrar.html',
   styleUrls: ['../../../../src/styles.css', './patrimonio.cadastrar.html']
 })
-
 export class PrincipalPatrimonioComponent {
 
   @ViewChild(AutocompleteFilterExample) autocomplete!: AutocompleteFilterExample;
@@ -23,8 +22,11 @@ export class PrincipalPatrimonioComponent {
   tabela: boolean = true;
   PatrimonioArray: Patrimonio[] = []; 
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
+
   
-  constructor(private servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
+    // console.log(minhaEntidade);
+
+  constructor(private servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService, private zone: NgZone) {};
   
   entidadesArray!: Entidade[];
 
@@ -38,23 +40,22 @@ export class PrincipalPatrimonioComponent {
       () => console.log('Observable completado')
     );
   }
-
   
+  selecionar(): void {
+      this.servicoPatrimonio.selecionar()
+      .subscribe(retorno => this.PatrimonioArray = retorno);    
+  }
 
   entidadeEscolhida(ent: any) {
-    this.patrimonio = ent //this.entidadesArray.find(e => e.identidade === ent.identidade)!;
-    //this.patrimonio.identidade = ent.identidade;
-    
-    // console.log(minhaEntidade);
+    this.patrimonio = ent;    
+    this.btnCadastro = false;
+    this.tabela = false;    
   }
 
   achaRazao(p: Patrimonio): string {
     let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
     return razao ;
-
   }
-
-
 
   limparCampo() {
     this.autocomplete.limpar();
@@ -67,17 +68,9 @@ export class PrincipalPatrimonioComponent {
     this.buscando = true;    
   }
 
-
-
-
   formatDate(date: Date) {
     return new Date(date).toLocaleDateString('pt-BR');
   }  
-
-  selecionar(): void {
-    this.servicoPatrimonio.selecionar()
-    .subscribe(retorno => this.PatrimonioArray = retorno);
-  }
 
   cadastrar(): void {
     this.servicoPatrimonio.cadastrar(this.patrimonio)
@@ -130,11 +123,15 @@ export class PrincipalPatrimonioComponent {
     this.limparCampo();
     this.buscando = false;
   }
-
   
-  ngOnInit() {    
-    this.selecionarEntidades(); 
-    this.selecionar();   
-  }
+   
 
+
+ngOnInit() {
+  
+    this.selecionarEntidades(); 
+    this.zone.run(() => {
+        this.selecionar(); 
+    });
+}
 }

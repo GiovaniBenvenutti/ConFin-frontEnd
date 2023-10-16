@@ -51,39 +51,12 @@
 </form>
 
 
-<app-table *ngIf="PatrimonioArray" [dataSource]="PatrimonioArray" 
-[displayedColumns]="exibirColunas" [entidadesArray]="entidadesArray"
-    (elementSelected)="entidadeEscolhida($event)"></app-table>
+<div>
+    <app-table *ngIf="PatrimonioArray != []; else loading" [dataSource]="PatrimonioArray" 
+    [displayedColumns]="exibirColunas" [entidadesArray]="entidadesArray"
+        (elementSelected)="entidadeEscolhida($event)"></app-table>
+</div>
 
-<!--
-<section style="height: 400px; overflow: auto;">
-    <table>
-        <thead>
-            <tr>
-                <th>id_patrimonio</th>
-                <th>id_entidade</th>
-                <th>Razão_Social</th>
-                <th>levantamento</th>
-                <th>valor</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let p of PatrimonioArray; index as i">
-                <td>{{ p.idpatrimonio }}</td>
-                <td>{{ p.identidade }}</td>
-                <td>{{ achaRazao(p) }}</td>
-                <td>{{ formatDate(p.levantamento )}}</td>
-                <td>{{ p.valor.toFixed(2) }}</td>
-                
-                <td>
-                    <button class="btn btn-success" (click)="selecionarPatrimonio(i)">
-                        Selecionar
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    
-    </table>
-</section>
--->
+<ng-template #loading>    
+    <app-spinner></app-spinner>
+</ng-template>

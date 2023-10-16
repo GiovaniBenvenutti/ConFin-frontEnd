@@ -4,11 +4,11 @@ import {NgFor} from '@angular/common';
 import { Entidade } from 'src/app/model/entidades.component';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
-  standalone: true,
-  imports: [MatTableModule, NgFor],
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.css'],
+    standalone: true,
+    imports: [MatTableModule, NgFor]
 })
 export class TableComponent {
   @Input() displayedColumns: any[] = [];
@@ -21,7 +21,7 @@ export class TableComponent {
   constructor() {};
 
   selecionarElement(element: any): void {
-    this.elementSelected.emit(element);    
+    this.elementSelected.emit(element);  
   }
   
   achaRazao(p: any): string {
@@ -49,8 +49,7 @@ export class TableComponent {
       });
     }
     this.displayedColumns.push('selecionar');
-
-    console.log(this.dataSource);
+    //console.log(this.dataSource);
   }  
 
   

@@ -1,8 +1,9 @@
 
- <div class="divTable">
+ <div class="divTable">    
+
     <section class="container mat-elevation-z8" tabindex="0">
         <table id="table" class="tabelaLancamentos" mat-table [dataSource]="dataSource">
-            
+                      
         <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
         <th mat-header-cell *matHeaderCellDef>
             {{column.header}}
