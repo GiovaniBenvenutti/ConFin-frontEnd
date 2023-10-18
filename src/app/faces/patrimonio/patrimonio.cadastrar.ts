@@ -1,10 +1,10 @@
 import { AutocompleteFilterExample } from './../../shared/autocomplete-filter-example/autocomplete-filter-example.component';
 import { EntidadesService } from './../../servico/entidades.service';
-import { Component, NgZone, ViewChild } from '@angular/core';
+import { Component, SimpleChanges, ViewChild } from '@angular/core';
 import { Patrimonio } from '../../model/patrimonio.component';
 import { PatrimonioService } from '../../servico/patrimonio.service';
 import { Entidade } from '../../model/entidades.component';
-import { finalize } from 'rxjs';
+import { Subscription, finalize } from 'rxjs';
 
 @Component({
   selector: 'app-principal-patrimonio',
@@ -22,11 +22,12 @@ export class PrincipalPatrimonioComponent {
   tabela: boolean = true;
   PatrimonioArray: Patrimonio[] = []; 
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
+  loading: boolean = false;
+  private subscription: Subscription = new Subscription;
 
-  
     // console.log(minhaEntidade);
 
-  constructor(private servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService, private zone: NgZone) {};
+  constructor(private servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
   
   entidadesArray!: Entidade[];
 
@@ -46,6 +47,8 @@ export class PrincipalPatrimonioComponent {
       .subscribe(retorno => this.PatrimonioArray = retorno);    
   }
 
+
+  
   entidadeEscolhida(ent: any) {
     this.patrimonio = ent;    
     this.btnCadastro = false;
@@ -124,14 +127,29 @@ export class PrincipalPatrimonioComponent {
     this.buscando = false;
   }
   
-   
-
-
-ngOnInit() {
-  
+  ngOnInit() {   
+    this.loading = true; 
     this.selecionarEntidades(); 
-    this.zone.run(() => {
-        this.selecionar(); 
+    this.selecionar(); 
+    this.subscription = this.servicoPatrimonio.verificarBackend().subscribe(patrimonio => {
+      this.PatrimonioArray = patrimonio;
     });
-}
+  }
+
+  
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['PatrimonioArray']) {
+      this.selecionar();
+      this.loading = false;
+    }
+  }
+  
+
+  
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+  
 }

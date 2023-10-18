@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Patrimonio } from '../model/patrimonio.component';
-import { Observable, delay, first, take, tap } from 'rxjs';
+import { Observable, delay, first, interval, switchMap, take, tap } from 'rxjs';
 import { Entidade } from '../model/entidades.component';
 
 
@@ -14,9 +14,16 @@ export class PatrimonioService {
   
   constructor(private http: HttpClient) { }
 
+  
+public verificarBackend(): Observable<Patrimonio[]> {
+  return interval(5000).pipe(
+    switchMap(() => this.selecionar())
+  );
+}
+
   public selecionar(): Observable<Patrimonio[]> {    
     return this.http.get<Patrimonio[]>(this.url).pipe(
-      first(),
+      //first(),
       delay(1000)
     );
   }

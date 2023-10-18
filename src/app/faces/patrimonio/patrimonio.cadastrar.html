@@ -51,11 +51,12 @@
 </form>
 
 
-<div>
-    <app-table *ngIf="PatrimonioArray != []; else loading" [dataSource]="PatrimonioArray" 
+<div *ngIf="PatrimonioArray.length >= 1; else: loading">
+    <app-table  [dataSource]="PatrimonioArray" 
     [displayedColumns]="exibirColunas" [entidadesArray]="entidadesArray"
         (elementSelected)="entidadeEscolhida($event)"></app-table>
 </div>
+
 
 <ng-template #loading>    
     <app-spinner></app-spinner>
