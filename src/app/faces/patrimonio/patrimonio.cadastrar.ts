@@ -27,7 +27,7 @@ export class PrincipalPatrimonioComponent {
 
     // console.log(minhaEntidade);
 
-  constructor(private servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
+  constructor(public servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
   
   entidadesArray!: Entidade[];
 
@@ -137,15 +137,22 @@ export class PrincipalPatrimonioComponent {
   }
 
   
+
+
+
+
+
+
+
+
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['PatrimonioArray']) {
       this.selecionar();
       this.loading = false;
     }
   }
-  
-
-  
+    
   ngOnDestroy() {
     if (this.subscription) {
       this.subscription.unsubscribe();

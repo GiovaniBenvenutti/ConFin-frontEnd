@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Patrimonio } from '../model/patrimonio.component';
-import { Observable, delay, first, interval, switchMap, take, tap } from 'rxjs';
+import { Observable, delay, finalize, first, interval, switchMap, take, tap } from 'rxjs';
 import { Entidade } from '../model/entidades.component';
 
 
@@ -12,6 +12,8 @@ export class PatrimonioService {
 
   private url: string = 'http://localhost:8090/controlefinanceiro/patrimonio';
   
+  loadingService = false;
+
   constructor(private http: HttpClient) { }
 
   
@@ -21,10 +23,13 @@ public verificarBackend(): Observable<Patrimonio[]> {
   );
 }
 
-  public selecionar(): Observable<Patrimonio[]> {    
-    return this.http.get<Patrimonio[]>(this.url).pipe(
+  public selecionar(): Observable<Patrimonio[]> {  
+
+  this.loadingService = true;  
+    return this.http.get<Patrimonio[]>(this.url).pipe( 
       //first(),
-      delay(1000)
+      //delay(1000),
+      finalize(() => this.loadingService = false)
     );
   }
 
