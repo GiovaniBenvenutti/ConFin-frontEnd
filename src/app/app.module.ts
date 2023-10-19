@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor } from '@angular/common/http';
 import { PrincipalEntidadeComponent } from './faces/entidade/entidades.cadastrar';
 import { PrincipalPatrimonioComponent } from './faces/patrimonio/patrimonio.cadastrar';
 
@@ -53,6 +53,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { DialogBoxComponent } from './shared/dialog-box/dialog-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { LoadingInterceptor } from './servico/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     ValueFieldComponent,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
