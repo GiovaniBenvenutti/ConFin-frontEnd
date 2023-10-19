@@ -3,7 +3,7 @@
 }
 
 .tela{
-  height: auto;
+  height: 100%;
   background-color: rgb(205, 255, 205);
   padding: 0px 5px 0px 5px;
 }

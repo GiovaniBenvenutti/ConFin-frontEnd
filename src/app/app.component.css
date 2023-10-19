@@ -40,6 +40,7 @@ button[type="menuAbas"].ativo{
 }
 
 .footerPrincipal{
-    height: 100px;
+    height: 100%;
+   /* background-color: aqua;*/
 }
 

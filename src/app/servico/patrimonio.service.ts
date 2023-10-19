@@ -12,7 +12,7 @@ export class PatrimonioService {
 
   private url: string = 'http://localhost:8090/controlefinanceiro/patrimonio';
   
-  loadingService = false;
+  //loadingService = false;
 
   constructor(private http: HttpClient) { }
 
@@ -25,11 +25,11 @@ public verificarBackend(): Observable<Patrimonio[]> {
 
   public selecionar(): Observable<Patrimonio[]> {  
 
-  this.loadingService = true;  
+  //this.loadingService = true;  
     return this.http.get<Patrimonio[]>(this.url).pipe( 
       //first(),
       //delay(1000),
-      finalize(() => this.loadingService = false)
+      //finalize(() => this.loadingService = false)
     );
   }
 
