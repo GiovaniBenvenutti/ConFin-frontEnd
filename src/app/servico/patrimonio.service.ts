@@ -18,7 +18,7 @@ export class PatrimonioService {
 
   
 public verificarBackend(): Observable<Patrimonio[]> {
-  return interval(5000).pipe(
+  return interval(10000).pipe(
     switchMap(() => this.selecionar())
   );
 }

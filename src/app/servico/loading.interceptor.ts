@@ -25,11 +25,6 @@ export class LoadingInterceptor implements HttpInterceptor{
                     this.loadingService.hide();
                 }
             })
-
-
         )
-
-
     }
-
 }
