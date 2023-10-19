@@ -130,10 +130,7 @@ export class PrincipalPatrimonioComponent {
   ngOnInit() {   
     this.loading = true; 
     this.selecionarEntidades(); 
-    this.selecionar(); 
-    this.subscription = this.servicoPatrimonio.verificarBackend().subscribe(patrimonio => {
-      this.PatrimonioArray = patrimonio;
-    });
+    this.selecionar();
   }
 
   
