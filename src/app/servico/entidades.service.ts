@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Entidade } from '../model/entidades.component';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,14 @@ export class EntidadesService {
   constructor(public http: HttpClient) { }
     
   public selecionar(): Observable<Entidade[]> {
-    return this.http.get<Entidade[]>(this.url);
+    return this.http.get<Entidade[]>(this.url).pipe(
+      catchError((error: any) => {
+        //console.error('Erro ao buscar patrimônios aquiiiiiiiii:', error);
+        alert('verifique sua conexão com o servidor');
+        // Em seguida, re-throw o erro para que qualquer inscrição também receba o erro
+        return throwError(error);
+      })
+    );
   }
 
   public entidadeById(idEntidade: number): Observable<Entidade> {
