@@ -54,6 +54,7 @@ import { MatCardModule } from '@angular/material/card';
 import { DialogBoxComponent } from './shared/dialog-box/dialog-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoadingInterceptor } from './servico/loading.interceptor';
+import { ErrorInterceptor } from './servico/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,11 @@ import { LoadingInterceptor } from './servico/loading.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
+      multi: true
+    },    
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     }
   ],

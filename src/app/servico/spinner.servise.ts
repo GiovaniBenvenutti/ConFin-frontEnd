@@ -1,9 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 
-
-
-
 @Injectable({
     providedIn: 'root'
   })
@@ -15,10 +12,8 @@ import { BehaviorSubject, Observable } from "rxjs";
     hide(): void {
         this.loadingSubject.next(false);
     }
-
+    
     show(): void {
         this.loadingSubject.next(true);
     }
-
-
   }

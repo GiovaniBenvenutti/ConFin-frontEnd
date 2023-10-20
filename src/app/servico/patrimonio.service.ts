@@ -14,23 +14,9 @@ export class PatrimonioService {
   private url: string = 'http://localhost:8090/controlefinanceiro/patrimonio';
   
   constructor(private http: HttpClient) { }
-    
-  /*
-  public verificarBackend(): Observable<Patrimonio[]> {
-    return interval(10000).pipe(
-      switchMap(() => this.selecionar())
-    );
-  }*/
-
+   
   public selecionar(): Observable<Patrimonio[]> {  
-    return this.http.get<Patrimonio[]>(this.url).pipe(
-      catchError(error => {
-        //console.error('Erro ao buscar patrimônios aquiiiiiiiii:', error);
-        alert('verifique sua conexão com o servidor');
-        // Em seguida, re-throw o erro para que qualquer inscrição também receba o erro
-        return throwError(error);
-      })
-    );
+    return this.http.get<Patrimonio[]>(this.url);
   }
 
   public cadastrar(obj: Patrimonio): Observable<Patrimonio> {
