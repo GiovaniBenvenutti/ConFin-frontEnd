@@ -17,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor{
                 alert('Erro na conexão ou servidor indisponível')
                 return throwError(() => new Error(''));
             }),
-            retryWhen(errors => errors.pipe(delay(2000))), // Aguarda 2 segundos antes de tentar novamente
+            retryWhen(errors => errors.pipe(delay(5000))), // Aguarda 2 segundos antes de tentar novamente
             catchError((erro: HttpErrorResponse) => {
                 console.log(erro)
                 alert('Erro na conexão ou servidor indisponível')
