@@ -23,9 +23,6 @@ export class PrincipalPatrimonioComponent {
   PatrimonioArray: Patrimonio[] = []; 
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
   private subscription: Subscription = new Subscription;
-  elementSelected: any = [];
-  
-  //console.log(minhaEntidade);
 
   constructor(public servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
   
@@ -47,35 +44,20 @@ export class PrincipalPatrimonioComponent {
       .subscribe(retorno => this.PatrimonioArray = retorno);    
   }
   
-  entidadeEscolhida(ent: any) {
-    this.patrimonio = ent;    
-    this.btnCadastro = false;
-    this.tabela = false;  
+  entidadeEscolhida(ent: any) { 
     this.pickedEntidade = this.entidadesArray.find(e => 
-      e.identidade === this.patrimonio.identidade)!;
-
-    //let ident: number = this.patrimonio.identidade;
-    //this.elementToEdit = this.entidadesArray.find(e => e.identidade === ident)!;
-   
-    
+      e.identidade === ent.identidade)!;    
     this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);  
+    this.patrimonio = ent;
+    this.btnCadastro = false;
+    this.tabela = false; 
   }
 
-
-
-
-
-
-
-
-
-
-
-  editElement(ent: any) {
-
-  }
-
-
+  
+  
+  formatDate(date: Date) {
+    return new Date(date).toLocaleDateString('pt-BR');
+  }    
 
   achaRazao(p: Patrimonio): string {
     let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
@@ -87,15 +69,12 @@ export class PrincipalPatrimonioComponent {
   }
 
   buscar(){
-    this.PatrimonioArray = this.PatrimonioArray
-    .filter(p => this.pickedEntidade.razaosocial.includes(this.autocomplete.getValor()));
+    this.PatrimonioArray = this.PatrimonioArray.filter(p => 
+      this.pickedEntidade.razaosocial.includes(this.autocomplete.getValor()));
     this.limparCampo();
     this.buscando = true;    
   }
 
-  formatDate(date: Date) {
-    return new Date(date).toLocaleDateString('pt-BR');
-  }  
 
   cadastrar(): void {
     this.servicoPatrimonio.cadastrar(this.patrimonio)

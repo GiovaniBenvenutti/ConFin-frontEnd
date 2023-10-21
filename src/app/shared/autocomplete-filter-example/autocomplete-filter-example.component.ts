@@ -40,10 +40,15 @@ export class AutocompleteFilterExample implements OnInit {
     );
     this.razoes = this.entidades.map(entidade => entidade.razaosocial);
     this.myControl.valueChanges.subscribe(value => {
+      if(this.elementToEdit){
+        const entidade = this.elementToEdit;
+      } else {
+
       const entidade = this.entidades.find(entidade => entidade.razaosocial === value);
+      
       if (entidade) {
         this.entidadeSelecionada.emit(entidade);
-      }
+      }}
     });
   }
   
@@ -57,7 +62,7 @@ export class AutocompleteFilterExample implements OnInit {
     this.myControl.reset();
   
     // Emita um evento com uma nova instância de Entidade
-    this.entidadeSelecionada.emit(new Entidade()); //0,"", "", "", "", ""));
+    this.entidadeSelecionada.emit(new Entidade());
   }
 
   setRazaosocial(razao: any) {
