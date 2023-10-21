@@ -45,6 +45,7 @@ export class AutocompleteFilterExample implements OnInit {
       }
     });
   }
+  
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.razoes.filter(option => option.toLowerCase().includes(filterValue));

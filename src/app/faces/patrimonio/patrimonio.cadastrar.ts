@@ -22,10 +22,8 @@ export class PrincipalPatrimonioComponent {
   tabela: boolean = true;
   PatrimonioArray: Patrimonio[] = []; 
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
-  loading: boolean = false;
   private subscription: Subscription = new Subscription;
-
-    // console.log(minhaEntidade);
+  //console.log(minhaEntidade);
 
   constructor(public servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
   
@@ -46,14 +44,22 @@ export class PrincipalPatrimonioComponent {
       this.servicoPatrimonio.selecionar()
       .subscribe(retorno => this.PatrimonioArray = retorno);    
   }
-
-
   
   entidadeEscolhida(ent: any) {
     this.patrimonio = ent;    
     this.btnCadastro = false;
-    this.tabela = false;    
+    this.tabela = false;  
   }
+
+  editElement(ent: any) {
+
+  }
+
+
+
+
+
+
 
   achaRazao(p: Patrimonio): string {
     let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
@@ -89,6 +95,8 @@ export class PrincipalPatrimonioComponent {
     this.patrimonio = this.PatrimonioArray[posicao];
     this.btnCadastro = false;
     this.tabela = false;
+    this.pickedEntidade = this.entidadesArray.find(e => 
+      e.identidade === this.patrimonio.identidade)!;
     this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);
   }
 
@@ -127,8 +135,7 @@ export class PrincipalPatrimonioComponent {
     this.buscando = false;
   }
   
-  ngOnInit() {   
-    this.loading = true; 
+  ngOnInit() {
     this.selecionarEntidades(); 
     this.selecionar();
   }
@@ -142,12 +149,15 @@ export class PrincipalPatrimonioComponent {
 
 
 
-
+  /* temque ver outra hora se os metodos abaixo nãosão inuteis */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['PatrimonioArray']) {
       this.selecionar();
-      this.loading = false;
+      //this.loading = false;
     }
+    /*
+    if (changes['patrimonio']) {    }
+    */
   }
     
   ngOnDestroy() {
