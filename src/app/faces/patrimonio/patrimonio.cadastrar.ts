@@ -44,6 +44,17 @@ export class PrincipalPatrimonioComponent {
       .subscribe(retorno => this.PatrimonioArray = retorno);    
   }
   
+  
+  entidadeSelecionada(ent: Entidade) {
+    this.patrimonio.identidade = ent.identidade;
+  }
+  
+
+
+
+
+
+  
   elementEscolhida(elem: any) { 
     this.pickedEntidade = this.entidadesArray.find(e => 
       e.identidade === elem.identidade)!;    
@@ -53,10 +64,6 @@ export class PrincipalPatrimonioComponent {
     this.tabela = false; 
   }
 
-  entidadeSelecionada(ent: Entidade) {
-    this.patrimonio.identidade = ent.identidade;
-  }
-  
   
   formatDate(date: Date) {
     return new Date(date).toLocaleDateString('pt-BR');

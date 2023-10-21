@@ -38,7 +38,7 @@ export class AutocompleteFilterExample implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
-    this.razoes = this.entidades.map(entidade => entidade.razaosocial);
+    this.razoes = this.entidades.map(entidade => entidade.identidade +' - '+ entidade.razaosocial);
     this.myControl.valueChanges.subscribe(value => {
       const entidade = this.entidades.find(entidade => entidade.razaosocial === value);      
       if (entidade) {
@@ -51,6 +51,9 @@ export class AutocompleteFilterExample implements OnInit {
     const filterValue = value.toLowerCase();
     return this.razoes.filter(option => option.toLowerCase().includes(filterValue));
   }
+
+
+  
 
   limpar() {
     // Limpe o controle do formulário
