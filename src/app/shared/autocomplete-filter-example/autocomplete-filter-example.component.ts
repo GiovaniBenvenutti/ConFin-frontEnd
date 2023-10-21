@@ -65,7 +65,7 @@ export class AutocompleteFilterExample implements OnInit {
     this.entidadeSelecionada.emit(new Entidade());
   }
 
-  setRazaosocial(razao: any) {
+  setRazaosocial(razao: string) {
     this.myControl.setValue(razao);
   }  
 

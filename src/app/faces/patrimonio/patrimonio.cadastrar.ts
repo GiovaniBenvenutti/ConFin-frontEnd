@@ -44,15 +44,18 @@ export class PrincipalPatrimonioComponent {
       .subscribe(retorno => this.PatrimonioArray = retorno);    
   }
   
-  entidadeEscolhida(ent: any) { 
+  elementEscolhida(elem: any) { 
     this.pickedEntidade = this.entidadesArray.find(e => 
-      e.identidade === ent.identidade)!;    
+      e.identidade === elem.identidade)!;    
     this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);  
-    this.patrimonio = ent;
+    this.patrimonio = elem;
     this.btnCadastro = false;
     this.tabela = false; 
   }
 
+  entidadeSelecionada(ent: Entidade) {
+    this.patrimonio.identidade = ent.identidade;
+  }
   
   
   formatDate(date: Date) {

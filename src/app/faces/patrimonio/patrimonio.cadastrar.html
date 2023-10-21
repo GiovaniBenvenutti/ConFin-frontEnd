@@ -8,7 +8,7 @@
         <autocomplete *ngIf="entidadesArray" 
         [entidades]="entidadesArray"
         [elementToEdit]="pickedEntidade"
-        (entidadeSelecionada)="entidadeEscolhida($event)"></autocomplete>
+        (entidadeSelecionada)="entidadeSelecionada($event)"></autocomplete>
     </div>
 
     <input type="date" name="myDate" [(ngModel)]="patrimonio.levantamento">
@@ -55,7 +55,7 @@
 <div>
     <app-table  [dataSource]="PatrimonioArray" 
     [displayedColumns]="exibirColunas" [entidadesArray]="entidadesArray"
-        (elementSelected)="entidadeEscolhida($event)"></app-table>
+        (elementSelected)="elementEscolhida($event)"></app-table>
 </div>
 
 
