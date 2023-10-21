@@ -40,16 +40,11 @@ export class AutocompleteFilterExample implements OnInit {
     );
     this.razoes = this.entidades.map(entidade => entidade.razaosocial);
     this.myControl.valueChanges.subscribe(value => {
-      if(this.elementToEdit){
-        const entidade = this.elementToEdit;
-      } else {
-
-      const entidade = this.entidades.find(entidade => entidade.razaosocial === value);
-      
+      const entidade = this.entidades.find(entidade => entidade.razaosocial === value);      
       if (entidade) {
         this.entidadeSelecionada.emit(entidade);
       }}
-    });
+    );
   }
   
   private _filter(value: string): string[] {
