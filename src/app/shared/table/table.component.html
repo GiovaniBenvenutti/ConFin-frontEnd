@@ -15,10 +15,12 @@
 
         <ng-container matColumnDef="selecionar">
             <th mat-header-cell *matHeaderCellDef>  </th>
-            <td mat-cell *matCellDef="let element">
-                    <button class="btn btn-success" (click)="selecionarElement(element)">
-                        Selecionar
-                    </button></td>
+            <td mat-cell *matCellDef="let element">                    
+                    <button class="btn btn-success" (click)="selecionarElement(element)"
+                    mat-mini-fab matTooltip="Basic" color="inherit" aria-label="Example icon-button with a heart icon"
+                    style="height: 30px; width: 30px;">
+                        <mat-icon >edit</mat-icon>
+                      </button>
         </ng-container>  
     
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" style="height: 10px"></tr>

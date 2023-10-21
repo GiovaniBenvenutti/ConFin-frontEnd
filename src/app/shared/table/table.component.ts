@@ -1,14 +1,16 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor} from '@angular/common';
 import { Entidade } from 'src/app/model/entidades.component';
+import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.css'],
     standalone: true,
-    imports: [MatTableModule, NgFor]
+    imports: [MatTableModule, NgFor, MatButtonModule, MatIconModule]
 })
 export class TableComponent {
   @Input() displayedColumns: any[] = [];
@@ -50,9 +52,7 @@ export class TableComponent {
     }
     this.displayedColumns.push('selecionar');
     //console.log(this.dataSource);
-  }  
-
-  
+  }    
   
 
 }
