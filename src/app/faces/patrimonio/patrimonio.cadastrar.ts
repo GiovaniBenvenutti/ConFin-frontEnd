@@ -23,6 +23,8 @@ export class PrincipalPatrimonioComponent {
   PatrimonioArray: Patrimonio[] = []; 
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
   private subscription: Subscription = new Subscription;
+  elementSelected: any = [];
+  
   //console.log(minhaEntidade);
 
   constructor(public servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
@@ -49,7 +51,25 @@ export class PrincipalPatrimonioComponent {
     this.patrimonio = ent;    
     this.btnCadastro = false;
     this.tabela = false;  
+    this.pickedEntidade = this.entidadesArray.find(e => 
+      e.identidade === this.patrimonio.identidade)!;
+
+    //let ident: number = this.patrimonio.identidade;
+    //this.elementToEdit = this.entidadesArray.find(e => e.identidade === ident)!;
+   
+    
+    this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);  
   }
+
+
+
+
+
+
+
+
+
+
 
   editElement(ent: any) {
 
@@ -57,15 +77,11 @@ export class PrincipalPatrimonioComponent {
 
 
 
-
-
-
-
   achaRazao(p: Patrimonio): string {
     let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
     return razao ;
   }
-
+      
   limparCampo() {
     this.autocomplete.limpar();
   }
@@ -94,10 +110,7 @@ export class PrincipalPatrimonioComponent {
   selecionarPatrimonio(posicao: number): void {
     this.patrimonio = this.PatrimonioArray[posicao];
     this.btnCadastro = false;
-    this.tabela = false;
-    this.pickedEntidade = this.entidadesArray.find(e => 
-      e.identidade === this.patrimonio.identidade)!;
-    this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);
+    this.tabela = false;  
   }
 
   editar(): void {
@@ -153,8 +166,10 @@ export class PrincipalPatrimonioComponent {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['PatrimonioArray']) {
       this.selecionar();
+
       //this.loading = false;
-    }
+    } 
+
     /*
     if (changes['patrimonio']) {    }
     */

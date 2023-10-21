@@ -5,8 +5,10 @@
 
 <form class="formGeral">
     <div style="padding: 0px; display: inline-block">
-        <autocomplete *ngIf="entidadesArray" [entidades]="entidadesArray"
-            (entidadeSelecionada)="entidadeEscolhida($event)"></autocomplete>
+        <autocomplete *ngIf="entidadesArray" 
+        [entidades]="entidadesArray"
+        [elementToEdit]="pickedEntidade"
+        (entidadeSelecionada)="entidadeEscolhida($event)"></autocomplete>
     </div>
 
     <input type="date" name="myDate" [(ngModel)]="patrimonio.levantamento">
@@ -50,11 +52,10 @@
     
 </form>
 
-
 <div>
     <app-table  [dataSource]="PatrimonioArray" 
     [displayedColumns]="exibirColunas" [entidadesArray]="entidadesArray"
-        (elementSelected)="entidadeEscolhida($event)"></app-table>
+        (elementSelected)="elementSelected($event)"></app-table>
 </div>
 
 

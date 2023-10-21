@@ -26,6 +26,7 @@ import { Entidade } from './../../model/entidades.component';
 export class AutocompleteFilterExample implements OnInit {
     
   @Input() entidades: Entidade[] = [];
+  @Input() elementToEdit: any = [];
   @Output() entidadeSelecionada = new EventEmitter<Entidade>();  
 
   razoes: string[] = [];
@@ -59,8 +60,8 @@ export class AutocompleteFilterExample implements OnInit {
     this.entidadeSelecionada.emit(new Entidade()); //0,"", "", "", "", ""));
   }
 
-  setRazaosocial(razaosocial: string) {
-    this.myControl.setValue(razaosocial);
+  setRazaosocial(razao: any) {
+    this.myControl.setValue(razao);
   }  
 
   getValor(): string {
