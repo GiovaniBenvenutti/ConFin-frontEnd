@@ -52,7 +52,6 @@ export class TableComponent {
     }
     this.displayedColumns.push('selecionar');
     //console.log(this.dataSource);
-  }    
-  
+  }      
 
 }

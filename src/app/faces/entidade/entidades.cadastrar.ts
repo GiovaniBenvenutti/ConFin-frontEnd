@@ -43,6 +43,7 @@ export class PrincipalEntidadeComponent {
     this.entidade = ent;
     this.btnCadastro = false;
     this.tabela = false;
+    console.log(this.entidade);
   }
 
   selecionar(): void {

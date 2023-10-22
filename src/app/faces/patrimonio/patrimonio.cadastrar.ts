@@ -44,26 +44,23 @@ export class PrincipalPatrimonioComponent {
       .subscribe(retorno => this.PatrimonioArray = retorno);    
   }
   
-  
+
+  elementEscolhida(elem: Patrimonio) { 
+    this.patrimonio = elem;    
+    this.pickedEntidade = this.entidadesArray.find(e => e.identidade === elem.identidade)!; 
+      
+    this.autocomplete.setRazaosocial(this.pickedEntidade.identidade);  
+    
+    this.btnCadastro = false;
+    this.tabela = false; 
+    
+    console.log(this.pickedEntidade);
+  }
+
   entidadeSelecionada(ent: Entidade) {
     this.patrimonio.identidade = ent.identidade;
   }
   
-
-
-
-
-
-  
-  elementEscolhida(elem: any) { 
-    this.pickedEntidade = this.entidadesArray.find(e => 
-      e.identidade === elem.identidade)!;    
-    this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);  
-    this.patrimonio = elem;
-    this.btnCadastro = false;
-    this.tabela = false; 
-  }
-
   
   formatDate(date: Date) {
     return new Date(date).toLocaleDateString('pt-BR');
@@ -139,7 +136,8 @@ export class PrincipalPatrimonioComponent {
   
   ngOnInit() {
     this.selecionarEntidades(); 
-    this.selecionar();
+    this.selecionar();    
+    //this.autocomplete.updateEntidade(this.patrimonio.identidade);
   }
 
   

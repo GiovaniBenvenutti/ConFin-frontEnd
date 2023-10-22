@@ -26,23 +26,28 @@ import { Entidade } from './../../model/entidades.component';
 export class AutocompleteFilterExample implements OnInit {
     
   @Input() entidades: Entidade[] = [];
-  @Input() elementToEdit: any = [];
-  @Output() entidadeSelecionada = new EventEmitter<Entidade>();  
+  @Output() entidadeSelecionada = new EventEmitter<Entidade>(); 
+  
+  /*
+  @Input() elementToEdit: any;
+  @Output() elementToEditChange = new EventEmitter<any>(); 
+  */
 
   razoes: string[] = [];
   myControl = new FormControl('');
   filteredOptions?: Observable<string[]>;
-
+  
   ngOnInit() {    
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
-    this.razoes = this.entidades.map(entidade => entidade.identidade +' - '+ entidade.razaosocial);
+    this.razoes = this.entidades.map(entidade => 
+      entidade.razaosocial +': '+ entidade.classe +', '+ entidade.subclasse +', '+ entidade.tipo);
     this.myControl.valueChanges.subscribe(value => {
-      const entidade = this.entidades.find(entidade => entidade.razaosocial === value);      
-      if (entidade) {
-        this.entidadeSelecionada.emit(entidade);
+      const entidade = this.entidades.find(entidade => entidade.razaosocial === value); 
+      if (entidade) {      
+        this.entidadeSelecionada.emit(entidade);          
       }}
     );
   }
@@ -51,9 +56,20 @@ export class AutocompleteFilterExample implements OnInit {
     const filterValue = value.toLowerCase();
     return this.razoes.filter(option => option.toLowerCase().includes(filterValue));
   }
+    
+  displayFn(entidade: Entidade): string {
+    return entidade ? entidade.razaosocial : '';
+  }
 
 
-  
+  /*
+  updateEntidade(newValue: any) {
+    this.elementToEdit = newValue;
+    this.elementToEditChange.emit(newValue);
+  }
+  */
+
+
 
   limpar() {
     // Limpe o controle do formulário
@@ -63,8 +79,11 @@ export class AutocompleteFilterExample implements OnInit {
     this.entidadeSelecionada.emit(new Entidade());
   }
 
-  setRazaosocial(razao: string) {
-    this.myControl.setValue(razao);
+  setRazaosocial(identidade: number) {
+    console.log('setRazaosocial recebeu ' +identidade);
+    let localEnt:Entidade = this.entidades.find(entidade => entidade.identidade === identidade)!
+    this.entidadeSelecionada.emit(localEnt);  
+    this.myControl.setValue(localEnt.razaosocial);
   }  
 
   getValor(): string {
