@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor} from '@angular/common';
 import { Entidade } from 'src/app/model/entidades.component';
@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
     standalone: true,
     imports: [MatTableModule, NgFor, MatButtonModule, MatIconModule]
 })
-export class TableComponent {
+export class TableComponent implements OnInit, OnChanges {
   @Input() displayedColumns: any[] = [];
   @Input() dataSource: any[] = [];
   @Input() entidadesArray: Entidade[] = [];
@@ -53,5 +53,13 @@ export class TableComponent {
     this.displayedColumns.push('selecionar');
     //console.log(this.dataSource);
   }      
+
+  ngOnChanges(changes: SimpleChanges) {
+    // Aqui você pode verificar se as propriedades que você se importa foram alteradas
+    // e atualizar a tabela conforme necessário
+    if (changes['dataSource']) {
+      this.ngOnInit();
+    }
+  }
 
 }

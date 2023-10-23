@@ -42,24 +42,20 @@ export class PrincipalPatrimonioComponent {
   selecionar(): void {
       this.servicoPatrimonio.selecionar()
       .subscribe(retorno => this.PatrimonioArray = retorno);    
-  }
-  
+  }  
 
   patrimonioEscolhido(patri: Patrimonio) { 
     this.patrimonio = patri;  
     this.pickedEntidade = this.entidadesArray.find(e => e.identidade === patri.identidade)!; 
-    this.autocomplete.myControl.setValue(this.pickedEntidade.razaosocial);  
-    
+    this.autocomplete.myControl.setValue(this.pickedEntidade.razaosocial);      
     this.btnCadastro = false;
-    this.tabela = false; 
-    
+    this.tabela = false;     
     console.log(this.pickedEntidade);
   }
 
   entidadeSelecionada(ent: Entidade) {
     this.patrimonio.identidade = ent.identidade;
-  }
-  
+  }  
   
   formatDate(date: Date) {
     return new Date(date).toLocaleDateString('pt-BR');
@@ -135,8 +131,7 @@ export class PrincipalPatrimonioComponent {
   
   ngOnInit() {
     this.selecionarEntidades(); 
-    this.selecionar();    
-    //this.autocomplete.updateEntidade(this.patrimonio.identidade);
+    this.selecionar();
   }
 
   

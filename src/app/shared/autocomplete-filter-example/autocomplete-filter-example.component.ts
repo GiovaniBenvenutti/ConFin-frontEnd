@@ -28,11 +28,6 @@ export class AutocompleteFilterExample implements OnInit {
   @Input() entidades: Entidade[] = [];
   @Output() entidadeSelecionada = new EventEmitter<Entidade>(); 
   
-  /*
-  @Input() elementToEdit: any;
-  @Output() elementToEditChange = new EventEmitter<any>(); 
-  */
-
   razoes: string[] = [];
   myControl = new FormControl('');
   filteredOptions?: Observable<string[]>;
@@ -62,15 +57,6 @@ export class AutocompleteFilterExample implements OnInit {
   }
   */
 
-  /*
-  updateEntidade(newValue: any) {
-    this.elementToEdit = newValue;
-    this.elementToEditChange.emit(newValue);
-  }
-  */
-
-
-
   limpar() {
     // Limpe o controle do formulário
     this.myControl.reset();
@@ -79,18 +65,10 @@ export class AutocompleteFilterExample implements OnInit {
     this.entidadeSelecionada.emit(new Entidade());
   }
 
-  /*
-  entidadeParaExibir(localEnt: Entidade) {
-    console.log('setRazaosocial recebeu ' +localEnt.razaosocial);
-    this.myControl.setValue(localEnt.razaosocial);
-  } 
-  */ 
-
   getValor(): string {
     const value = this.myControl.value;
     return value ? value.toString() : '';
- }
- 
+ } 
 
 }
 
