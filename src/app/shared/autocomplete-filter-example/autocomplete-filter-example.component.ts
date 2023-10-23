@@ -42,8 +42,7 @@ export class AutocompleteFilterExample implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
-    this.razoes = this.entidades.map(entidade => 
-      entidade.razaosocial +': '+ entidade.classe +', '+ entidade.subclasse +', '+ entidade.tipo);
+    this.razoes = this.entidades.map(entidade => entidade.razaosocial);
     this.myControl.valueChanges.subscribe(value => {
       const entidade = this.entidades.find(entidade => entidade.razaosocial === value); 
       if (entidade) {      
@@ -57,10 +56,11 @@ export class AutocompleteFilterExample implements OnInit {
     return this.razoes.filter(option => option.toLowerCase().includes(filterValue));
   }
     
-  displayFn(entidade: Entidade): string {
-    return entidade ? entidade.razaosocial : '';
+  /*
+  displayFn(entidade: any): string {
+    return entidade && entidade.razaosocial ? entidade.razaosocial : '';
   }
-
+  */
 
   /*
   updateEntidade(newValue: any) {
@@ -79,12 +79,12 @@ export class AutocompleteFilterExample implements OnInit {
     this.entidadeSelecionada.emit(new Entidade());
   }
 
-  setRazaosocial(identidade: number) {
-    console.log('setRazaosocial recebeu ' +identidade);
-    let localEnt:Entidade = this.entidades.find(entidade => entidade.identidade === identidade)!
-    this.entidadeSelecionada.emit(localEnt);  
+  /*
+  entidadeParaExibir(localEnt: Entidade) {
+    console.log('setRazaosocial recebeu ' +localEnt.razaosocial);
     this.myControl.setValue(localEnt.razaosocial);
-  }  
+  } 
+  */ 
 
   getValor(): string {
     const value = this.myControl.value;

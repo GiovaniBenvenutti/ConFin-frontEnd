@@ -45,11 +45,10 @@ export class PrincipalPatrimonioComponent {
   }
   
 
-  elementEscolhida(elem: Patrimonio) { 
-    this.patrimonio = elem;    
-    this.pickedEntidade = this.entidadesArray.find(e => e.identidade === elem.identidade)!; 
-      
-    this.autocomplete.setRazaosocial(this.pickedEntidade.identidade);  
+  patrimonioEscolhido(patri: Patrimonio) { 
+    this.patrimonio = patri;  
+    this.pickedEntidade = this.entidadesArray.find(e => e.identidade === patri.identidade)!; 
+    this.autocomplete.myControl.setValue(this.pickedEntidade.razaosocial);  
     
     this.btnCadastro = false;
     this.tabela = false; 
