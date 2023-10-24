@@ -11,7 +11,7 @@ import { Subscription, finalize } from 'rxjs';
   templateUrl: './patrimonio.cadastrar.html',
   styleUrls: ['../../../../src/styles.css', './patrimonio.cadastrar.html']
 })
-export class PrincipalPatrimonioComponent {
+export class PrincipalPatrimonioComponent implements OnInit {
 
   @ViewChild(AutocompleteFilterExample) autocomplete!: AutocompleteFilterExample;
   patrimonio: Patrimonio = new Patrimonio();

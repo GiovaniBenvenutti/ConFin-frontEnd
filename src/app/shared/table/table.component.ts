@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, OnDestroy } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor} from '@angular/common';
 import { Entidade } from 'src/app/model/entidades.component';
@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
     standalone: true,
     imports: [MatTableModule, NgFor, MatButtonModule, MatIconModule]
 })
-export class TableComponent {
+export class TableComponent implements OnInit, OnChanges {
   @Input() displayedColumns: any[] = [];
   @Input() dataSource: any[] = [];
   @Input() entidadesArray: Entidade[] = [];
@@ -50,25 +50,44 @@ export class TableComponent {
         }
       });      
     }
-    this.displayedColumns.push('selecionar')
+   // this.displayedColumns.push('selecionar')
         
     //console.log(this.dataSource);
   }      
 
   
   /* temque ver outra hora se os metodos abaixo nãosão inuteis */
-  /*ngOnChanges(changes: SimpleChanges) {
-    if (changes['PatrimonioArray']) {
-      this.selecionarEntidades(); 
-      this.selecionar();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['dataSource']) { 
+      this.updateTable();
     } 
   }
-    
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+
+  
+  updateTable() {
+    // Limpa o array columns
+    this.columns = [];
+  
+     // Preenche o array columns dinamicamente
+     for (let column of this.displayedColumns) {
+      this.columns.push({
+        columnDef: column,
+        header: column,
+        cell: (element: any) => {
+          if (column === 'identidade') {
+            return this.achaRazao(element[column]);            
+          } else {
+            return `${element[column]}`;
+          }
+        }
+      });
     }
-  }
-*/
+    
+   //this.displayedColumns.push('selecionar')
+  }      
+
+    
+
+
 
 }
