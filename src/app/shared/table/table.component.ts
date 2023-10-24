@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
     standalone: true,
     imports: [MatTableModule, NgFor, MatButtonModule, MatIconModule]
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableComponent {
   @Input() displayedColumns: any[] = [];
   @Input() dataSource: any[] = [];
   @Input() entidadesArray: Entidade[] = [];
@@ -48,18 +48,27 @@ export class TableComponent implements OnInit, OnChanges {
             return `${element[column]}`;
           }
         }
-      });
+      });      
     }
-    this.displayedColumns.push('selecionar');
+    this.displayedColumns.push('selecionar')
+        
     //console.log(this.dataSource);
   }      
 
-  ngOnChanges(changes: SimpleChanges) {
-    // Aqui você pode verificar se as propriedades que você se importa foram alteradas
-    // e atualizar a tabela conforme necessário
-    if (changes['dataSource']) {
-      this.ngOnInit();
+  
+  /* temque ver outra hora se os metodos abaixo nãosão inuteis */
+  /*ngOnChanges(changes: SimpleChanges) {
+    if (changes['PatrimonioArray']) {
+      this.selecionarEntidades(); 
+      this.selecionar();
+    } 
+  }
+    
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
+*/
 
 }

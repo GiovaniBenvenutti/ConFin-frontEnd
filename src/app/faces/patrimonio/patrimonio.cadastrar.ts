@@ -1,6 +1,6 @@
 import { AutocompleteFilterExample } from './../../shared/autocomplete-filter-example/autocomplete-filter-example.component';
 import { EntidadesService } from './../../servico/entidades.service';
-import { Component, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Patrimonio } from '../../model/patrimonio.component';
 import { PatrimonioService } from '../../servico/patrimonio.service';
 import { Entidade } from '../../model/entidades.component';
@@ -77,7 +77,6 @@ export class PrincipalPatrimonioComponent {
     this.buscando = true;    
   }
 
-
   cadastrar(): void {
     this.servicoPatrimonio.cadastrar(this.patrimonio)
     .subscribe(retorno => {
@@ -134,32 +133,5 @@ export class PrincipalPatrimonioComponent {
     this.selecionar();
   }
 
-  
-
-
-
-
-
-
-
-
-  /* temque ver outra hora se os metodos abaixo nãosão inuteis */
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['PatrimonioArray']) {
-      this.selecionar();
-
-      //this.loading = false;
-    } 
-
-    /*
-    if (changes['patrimonio']) {    }
-    */
-  }
-    
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
   
 }
