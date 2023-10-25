@@ -5,6 +5,7 @@ import { Patrimonio } from '../../model/patrimonio.component';
 import { PatrimonioService } from '../../servico/patrimonio.service';
 import { Entidade } from '../../model/entidades.component';
 import { Subscription, finalize } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-principal-patrimonio',
@@ -24,7 +25,9 @@ export class PrincipalPatrimonioComponent implements OnInit {
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
   private subscription: Subscription = new Subscription;
 
-  constructor(public servicoPatrimonio: PatrimonioService, private servicoEntidade: EntidadesService) {};
+  constructor(private servicoPatrimonio: PatrimonioService, 
+              private servicoEntidade: EntidadesService,
+              private datePipe: DatePipe) {};
   
   entidadesArray!: Entidade[];
 
@@ -58,8 +61,8 @@ export class PrincipalPatrimonioComponent implements OnInit {
   }  
   
   formatDate(date: Date) {
-    return new Date(date); //.toLocaleDateString('pt-BR');
-  }    
+    return this.datePipe.transform(date, 'yyyy-MM-dd');
+  }   
 
   achaRazao(p: Patrimonio): string {
     let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;

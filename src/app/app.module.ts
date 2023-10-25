@@ -56,6 +56,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoadingInterceptor } from './servico/loading.interceptor';
 import { ErrorInterceptor } from './servico/error.interceptor';
 
+import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,    
@@ -117,7 +119,8 @@ import { ErrorInterceptor } from './servico/error.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }
+    },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
