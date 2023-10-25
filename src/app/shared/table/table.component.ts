@@ -17,7 +17,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Input() dataSource: any[] = [];
   @Input() entidadesArray: Entidade[] = [];
   @Output() elementSelected = new EventEmitter<any>();   
-
+  
   columns:any[] = [];
 
   constructor() {};
@@ -32,7 +32,7 @@ export class TableComponent implements OnInit, OnChanges {
     return razao ;
   }
 
-  ngOnInit() {      
+  ngOnInit() {  
     // Limpa o array columns
     this.columns = [];
   
@@ -48,24 +48,31 @@ export class TableComponent implements OnInit, OnChanges {
             return `${element[column]}`;
           }
         }
-      });      
+      });    
     }
-   // this.displayedColumns.push('selecionar')
-        
+    this.displayedColumns.push('selecionar');      
     //console.log(this.dataSource);
   }      
 
   
+
+
+
+
+
+
+
   /* temque ver outra hora se os metodos abaixo nãosão inuteis */
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['dataSource']) { 
-      this.updateTable();
-    } 
+  /*  if (changes['dataSource']) { 
+      this.displayedColumns = this.displayedColumns.filter(column => column !== "selecionar");
+      this.ngOnInit();
+     // this.updateTable();
+    } */
   }
-
   
   updateTable() {
-    // Limpa o array columns
+ /*   // Limpa o array columns
     this.columns = [];
   
      // Preenche o array columns dinamicamente
@@ -84,10 +91,9 @@ export class TableComponent implements OnInit, OnChanges {
     }
     
    //this.displayedColumns.push('selecionar')
-  }      
-
-    
-
+  
+   */
+  }
 
 
 }

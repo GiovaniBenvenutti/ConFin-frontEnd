@@ -58,7 +58,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
   }  
   
   formatDate(date: Date) {
-    return new Date(date).toLocaleDateString('pt-BR');
+    return new Date(date); //.toLocaleDateString('pt-BR');
   }    
 
   achaRazao(p: Patrimonio): string {
