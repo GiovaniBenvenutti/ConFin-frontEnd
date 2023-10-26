@@ -67,18 +67,11 @@ export class PrincipalPatrimonioComponent implements OnInit {
   
   get levantamentoFormatado() {
   return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd') || '';
-}
-
-
+  }
   set levantamentoFormatado(value: string) {
     this._levantamento = new Date(value);
   }
-
-  achaRazao(p: Patrimonio): string {
-    let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
-    return razao ;
-  }
-      
+     
   limparCampo() {
     this.autocomplete.limpar();
   }
@@ -147,5 +140,10 @@ export class PrincipalPatrimonioComponent implements OnInit {
     this.selecionar();
   }
 
+  achaRazao(p: Patrimonio): string {
+    let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
+    return razao ;
+  }
+   
   
 }
