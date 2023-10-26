@@ -25,7 +25,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
   private subscription: Subscription = new Subscription;
   private _levantamento: Date = new Date();
-  
+
   constructor(private servicoPatrimonio: PatrimonioService, 
               private servicoEntidade: EntidadesService,
               private datePipe: DatePipe) {};
@@ -66,8 +66,9 @@ export class PrincipalPatrimonioComponent implements OnInit {
   } 
   
   get levantamentoFormatado() {
-    return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd');
-  }
+  return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd') || '';
+}
+
 
   set levantamentoFormatado(value: string) {
     this._levantamento = new Date(value);
