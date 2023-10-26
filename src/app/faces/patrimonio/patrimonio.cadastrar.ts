@@ -16,7 +16,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
   @ViewChild(AutocompleteFilterExample) autocomplete!: AutocompleteFilterExample;
   patrimonio: Patrimonio = new Patrimonio();
-  pickedEntidade: Entidade = new Entidade();
+   pickedEntidade: Entidade = new Entidade();
   btnCadastro: boolean = true;  
   btnBusca: boolean = true;
   buscando: boolean = false;
@@ -24,7 +24,8 @@ export class PrincipalPatrimonioComponent implements OnInit {
   PatrimonioArray: Patrimonio[] = []; 
   exibirColunas: string[] = ['idpatrimonio', 'identidade', 'levantamento', 'valor']; 
   private subscription: Subscription = new Subscription;
-
+  private _levantamento: Date = new Date();
+  
   constructor(private servicoPatrimonio: PatrimonioService, 
               private servicoEntidade: EntidadesService,
               private datePipe: DatePipe) {};
@@ -61,8 +62,16 @@ export class PrincipalPatrimonioComponent implements OnInit {
   }  
   
   formatDate(date: Date) {
-    return this.datePipe.transform(date, 'yyyy-MM-dd');
-  }   
+    return this.datePipe.transform(date);
+  } 
+  
+  get levantamentoFormatado() {
+    return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd');
+  }
+
+  set levantamentoFormatado(value: string) {
+    this._levantamento = new Date(value);
+  }
 
   achaRazao(p: Patrimonio): string {
     let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
@@ -87,6 +96,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
       this.patrimonio = new Patrimonio();
       this.limparCampo();
       alert('Patrimonio cadastrada com sucesso !');
+      
     });
   }  
 
