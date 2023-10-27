@@ -26,8 +26,8 @@ export class PrincipalPatrimonioComponent implements OnInit {
   private subscription: Subscription = new Subscription;
   private _levantamento: Date = new Date();
 
-  constructor(private servicoPatrimonio: PatrimonioService, 
-              private servicoEntidade: EntidadesService,
+  constructor(private servicoEntidade: EntidadesService,
+              private servicoPatrimonio: PatrimonioService,
               private datePipe: DatePipe) {};
   
   entidadesArray!: Entidade[];

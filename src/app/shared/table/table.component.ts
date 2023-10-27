@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, OnDestroy, ViewChild } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor} from '@angular/common';
 import { Entidade } from 'src/app/model/entidades.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTable } from '@angular/material/table';
 
 @Component({
     selector: 'app-table',
@@ -19,6 +20,8 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() elementSelected = new EventEmitter<any>();   
   
   columns:any[] = [];
+
+  @ViewChild(MatTable) table!: MatTable<any>;
 
   constructor() {};
 
@@ -51,12 +54,9 @@ export class TableComponent implements OnInit, OnChanges {
       });    
     }
     this.displayedColumns.push('selecionar');      
-    //console.log(this.dataSource);
-  }      
-
-  
-
-
+    
+    
+  }
 
 
 
@@ -64,36 +64,17 @@ export class TableComponent implements OnInit, OnChanges {
 
   /* temque ver outra hora se os metodos abaixo nãosão inuteis */
   ngOnChanges(changes: SimpleChanges) {
-  /*  if (changes['dataSource']) { 
-      this.displayedColumns = this.displayedColumns.filter(column => column !== "selecionar");
-      this.ngOnInit();
-     // this.updateTable();
-    } */
+    if (changes['dataSource']) {    
+      this.updateTable();
+    
+      
+    }
   }
   
   updateTable() {
- /*   // Limpa o array columns
-    this.columns = [];
-  
-     // Preenche o array columns dinamicamente
-     for (let column of this.displayedColumns) {
-      this.columns.push({
-        columnDef: column,
-        header: column,
-        cell: (element: any) => {
-          if (column === 'identidade') {
-            return this.achaRazao(element[column]);            
-          } else {
-            return `${element[column]}`;
-          }
-        }
-      });
-    }
-    
-   //this.displayedColumns.push('selecionar')
-  
-   */
+    // Atualiza os dados da tabela e renderiza as linhas
+    this.dataSource = this.dataSource;
+    this.table.renderRows();
   }
-
 
 }
