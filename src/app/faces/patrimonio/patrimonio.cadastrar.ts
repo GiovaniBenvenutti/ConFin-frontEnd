@@ -16,7 +16,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
   @ViewChild(AutocompleteFilterExample) autocomplete!: AutocompleteFilterExample;
   patrimonio: Patrimonio = new Patrimonio();
-   pickedEntidade: Entidade = new Entidade();
+  pickedEntidade: Entidade = new Entidade();
   btnCadastro: boolean = true;  
   btnBusca: boolean = true;
   buscando: boolean = false;
@@ -90,7 +90,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
       this.patrimonio = new Patrimonio();
       this.limparCampo();
       alert('Patrimonio cadastrada com sucesso !');
-      
+      this.selecionar();
     });
   }  
 
@@ -122,7 +122,8 @@ export class PrincipalPatrimonioComponent implements OnInit {
       this.patrimonio = new Patrimonio();
       this.btnCadastro = true;
       this.tabela = true;
-      alert('Patrimonio excluida com sucesso !');      
+      alert('Patrimonio excluida com sucesso !');
+      this.selecionar();      
     });
   }
 

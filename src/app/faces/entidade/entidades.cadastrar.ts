@@ -56,7 +56,8 @@ export class PrincipalEntidadeComponent {
     .subscribe(retorno => {
       this.entidadesArray.push(retorno);
       this.entidade = new Entidade();
-      alert('Entidade cadastrada com sucesso !');
+      alert('Entidade cadastrada com sucesso !');      
+      this.selecionar();
     });
   }
 
@@ -104,7 +105,8 @@ export class PrincipalEntidadeComponent {
       this.entidade = new Entidade();
       this.btnCadastro = true;
       this.tabela = true;
-      alert('Entidade excluida com sucesso !');      
+      alert('Entidade excluida com sucesso !');        
+      this.selecionar();    
     });
   }
 

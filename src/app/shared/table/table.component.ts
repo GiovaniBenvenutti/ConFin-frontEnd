@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, OnDestroy, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgFor} from '@angular/common';
 import { Entidade } from 'src/app/model/entidades.component';
@@ -13,7 +13,7 @@ import { MatTable } from '@angular/material/table';
     standalone: true,
     imports: [MatTableModule, NgFor, MatButtonModule, MatIconModule]
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableComponent implements OnInit, AfterViewInit {
   @Input() displayedColumns: any[] = [];
   @Input() dataSource: any[] = [];
   @Input() entidadesArray: Entidade[] = [];
@@ -55,26 +55,34 @@ export class TableComponent implements OnInit, OnChanges {
     }
     this.displayedColumns.push('selecionar');      
     
-    
+    // Atualiza os dados da tabela
+    let dadosAtualizados = this.dataSource;
+    this.dataSource = dadosAtualizados;
   }
+
+  ngAfterViewInit() {
+    // Renderiza as linhas da tabela
+    this.table.renderRows();
+  }
+
 
 
 
 
 
   /* temque ver outra hora se os metodos abaixo nãosão inuteis */
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['dataSource']) {    
+  //  ngOnChanges(changes: SimpleChanges) {
+ /*   if (changes['dataSource']) {    
       this.updateTable();
     
       
-    }
-  }
+    }*/
+ // }
   
-  updateTable() {
+ // updateTable() {
     // Atualiza os dados da tabela e renderiza as linhas
-    this.dataSource = this.dataSource;
-    this.table.renderRows();
-  }
+ /*   let dadosAtualizados = this.dataSource;
+    this.table.renderRows();    */
+  //}
 
 }
