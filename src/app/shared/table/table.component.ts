@@ -5,6 +5,7 @@ import { Entidade } from 'src/app/model/entidades.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTable } from '@angular/material/table';
+import { Patrimonio } from 'src/app/model/patrimonio.component';
 
 @Component({
     selector: 'app-table',
@@ -26,14 +27,16 @@ export class TableComponent implements OnInit, AfterViewInit {
   constructor() {};
 
   selecionarElement(element: any): void {
-    this.elementSelected.emit(element);  
+    this.elementSelected.emit(element);
   }
+
   
   achaRazao(p: any): string {
-    let razao: string = this.entidadesArray.find(e => e.identidade === p)?.razaosocial!;    
-    //console.log(p);
-    return razao ;
+    let entidade = this.entidadesArray.find(e => e.identidade === p);
+    let razao: string = entidade && entidade.razaosocial ? entidade.razaosocial : 'ENTIDADE NÃO ENCONTRADA';
+    return razao;
   }
+
 
   ngOnInit() {  
     // Limpa o array columns

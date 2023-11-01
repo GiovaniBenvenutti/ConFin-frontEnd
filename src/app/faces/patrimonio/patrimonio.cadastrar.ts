@@ -51,11 +51,16 @@ export class PrincipalPatrimonioComponent implements OnInit {
   patrimonioEscolhido(patri: Patrimonio) { 
     this.patrimonio = patri;  
     this.pickedEntidade = this.entidadesArray.find(e => e.identidade === patri.identidade)!; 
-    this.autocomplete.myControl.setValue(this.pickedEntidade.razaosocial);      
+    if (this.pickedEntidade) {
+        this.autocomplete.myControl.setValue(this.pickedEntidade.razaosocial);      
+    } else {
+        this.autocomplete.myControl.setValue('entidade nao encontrada');
+    }
     this.btnCadastro = false;
     this.tabela = false;     
     console.log(this.pickedEntidade);
-  }
+}
+
 
   entidadeSelecionada(ent: Entidade) {
     this.patrimonio.identidade = ent.identidade;
