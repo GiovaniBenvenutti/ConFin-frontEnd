@@ -23,10 +23,11 @@ export class PrincipalEntidadeComponent {
   btnBusca: boolean = true;
   tabela: boolean = true;
   entidadesArray: Entidade[] = [];
-  exibirColunas: string[] = ['razaosocial', 'classe', 'subclasse', 'tipo'];
+  exibirColunas: string[] = ['razaosocial', 'classe', 'subclasse', 'tipo', 'active'];
   EnumClasse: any;
   SubClasse: any;
   pickedEntidade: Entidade = new Entidade();
+  
     
   onClasseChange(selectedValue1: string): void {
     // Access a property or method of the SubClasse constant to update the subClasses array
@@ -94,6 +95,23 @@ export class PrincipalEntidadeComponent {
     });
   }
 
+  entActived: boolean = this.entidade.active;
+
+  softDelete(): void {
+    this.servicoEntidade.editar(this.entidade)
+    .subscribe(retorno => {
+        if(!this.entidade.active){          
+          this.entidade.active = true;
+          this.entActived = !this.entActived;
+        } else {          
+          this.entidade.active = false;
+          this.entActived = !this.entActived;
+        }
+      this.editar();
+    });
+  }
+
+  // HARD DELETE DEVE SER UMA OPÇÃO APENAS PARA O DESENVOLVEDOR //
   remover(): void {
     this.servicoEntidade.remover(this.entidade.identidade)
     .subscribe(retorno => {

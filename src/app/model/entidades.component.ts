@@ -6,6 +6,7 @@ export class Entidade {
   subclasse!: string;  
   tipo!: string;
   infad!: string;
+  active!: boolean;
   
   constructor(
     identidade?: number,
@@ -13,7 +14,8 @@ export class Entidade {
     classe?: string,
     subclasse?: string,
     tipo?: string,
-    infad?: string
+    infad?: string,
+    active?: boolean
   ) {
     this.identidade = identidade || 0;
     this.razaosocial = razaosocial || '';
@@ -21,9 +23,12 @@ export class Entidade {
     this.subclasse = subclasse || '';  
     this.tipo = tipo || '';
     this.infad = infad || '';
+    this.active = true;
   }
   
   toString(): string {
-    return `Entidade: ${this.identidade}, ${this.razaosocial}, ${this.classe}, ${this.subclasse}, ${this.tipo}, ${this.infad}`;
+    return `Entidade: ${this.identidade}, ${this.razaosocial}, 
+                      ${this.classe}, ${this.subclasse}, 
+                      ${this.tipo}, ${this.infad}, ${this.active}`;
   }  
 }

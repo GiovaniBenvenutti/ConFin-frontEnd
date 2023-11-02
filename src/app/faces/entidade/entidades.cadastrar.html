@@ -59,12 +59,13 @@
         class="btn btn-warning"
         (click)="editar()">
 
-    <input
+        <input
         type="button"
-        value="Remover"
+        [value]="entidade.active? 'Desativar' : 'Ativar'"
         *ngIf="!btnCadastro"        
         class="btn btn-danger"
-        (click)="remover()">
+        (click)="softDelete()">
+    
 
     <input
         type="button"
