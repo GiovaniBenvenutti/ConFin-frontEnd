@@ -4,7 +4,7 @@ import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } fro
 import { Patrimonio } from '../../model/patrimonio.component';
 import { PatrimonioService } from '../../servico/patrimonio.service';
 import { Entidade } from '../../model/entidades.component';
-import { Subscription, finalize } from 'rxjs';
+import { Subscription, finalize, map } from 'rxjs';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -34,6 +34,9 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
   selecionarEntidades(): void {
     this.servicoEntidade.selecionar()
+    .pipe(
+      map((retorno: any[]) => retorno.filter((entidade: { classe: string; }) => entidade.classe === "PATRIMONIO_BALANCO"))
+    )
     .subscribe(
       retorno => {       
         this.entidadesArray = retorno;        
@@ -43,10 +46,20 @@ export class PrincipalPatrimonioComponent implements OnInit {
     );
   }
   
+
+  // TEM QUE FILTRAR O ARRA PATRIMONIO PARA QUE A ENTIDADE DE TODOS QUE SÃO ADD SEJAM DA CLASSE CORRETA
   selecionar(): void {
-      this.servicoPatrimonio.selecionar()
-      .subscribe(retorno => this.PatrimonioArray = retorno);    
-  }  
+    this.servicoPatrimonio.selecionar()
+    .subscribe(retorno => {
+        this.PatrimonioArray = retorno.filter(patrimonio => 
+            this.entidadesArray.some(entidade => entidade.identidade === patrimonio.identidade)
+        );
+    });    
+  }
+  
+
+  
+
 
   patrimonioEscolhido(patri: Patrimonio) { 
     this.patrimonio = patri;  
@@ -151,5 +164,12 @@ export class PrincipalPatrimonioComponent implements OnInit {
     return razao ;
   }
    
+
+
+
+
+
+
+  
   
 }
