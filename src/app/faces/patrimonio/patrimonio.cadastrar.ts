@@ -35,7 +35,10 @@ export class PrincipalPatrimonioComponent implements OnInit {
   selecionarEntidades(): void {
     this.servicoEntidade.selecionar()
     .pipe(
-      map((retorno: any[]) => retorno.filter((entidade: { classe: string; }) => entidade.classe === "PATRIMONIO_BALANCO"))
+      map((retorno: any[]) => retorno
+        .filter((entidade: { classe: string; }) => entidade.classe === "PATRIMONIO_BALANCO")
+        .filter((entidade: { active: boolean; }) => entidade.active === true)
+      )
     )
     .subscribe(
       retorno => {       
@@ -45,6 +48,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
       () => console.log('Observable completado')
     );
   }
+
   
 
   // TEM QUE FILTRAR O ARRA PATRIMONIO PARA QUE A ENTIDADE DE TODOS QUE SÃO ADD SEJAM DA CLASSE CORRETA
