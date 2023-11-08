@@ -33,7 +33,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   
   achaRazao(p: any): string {
     let entidade = this.entidadesArray.find(e => e.identidade === p);
-    let razao: string = entidade && entidade.razaosocial ? entidade.razaosocial : 'ENTIDADE NÃO ENCONTRADA';
+    let razao: string = entidade && entidade.razaosocial ? entidade.razaosocial : p;
+    
     return razao;
   }
 

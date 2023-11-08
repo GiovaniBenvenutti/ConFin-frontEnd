@@ -86,6 +86,9 @@ export class PrincipalPatrimonioComponent implements OnInit {
     return this.datePipe.transform(date);
   } 
   
+
+
+
   get levantamentoFormatado() {
   return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd') || '';
   }
@@ -93,6 +96,10 @@ export class PrincipalPatrimonioComponent implements OnInit {
     this._levantamento = new Date(value);
   }
      
+
+
+
+  
   limparCampo() {
     this.autocomplete.limpar();
   }
