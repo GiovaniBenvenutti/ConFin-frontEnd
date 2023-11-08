@@ -37,7 +37,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
     .pipe(
       map((retorno: any[]) => retorno
         .filter((entidade: { classe: string; }) => entidade.classe === "PATRIMONIO_BALANCO")
-        .filter((entidade: { active: boolean; }) => entidade.active === true)
+        //.filter((entidade: { active: boolean; }) => entidade.active === true)
       )
     )
     .subscribe(
@@ -60,7 +60,6 @@ export class PrincipalPatrimonioComponent implements OnInit {
         );
     });    
   }
-  
 
   
 

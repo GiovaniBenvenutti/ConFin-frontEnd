@@ -32,7 +32,8 @@ export class AutocompleteFilterExample implements OnInit {
   myControl = new FormControl('');
   filteredOptions?: Observable<string[]>;
   
-  ngOnInit() {    
+  ngOnInit() {  
+    this.filtrarEntidadesAtivas();  
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
@@ -50,6 +51,10 @@ export class AutocompleteFilterExample implements OnInit {
     const filterValue = value.toLowerCase();
     return this.razoes.filter(option => option.toLowerCase().includes(filterValue));
   }
+
+  filtrarEntidadesAtivas(): void {
+    this.entidades = this.entidades.filter((entidade: { active: boolean; }) => entidade.active === true);
+}
     
   /*
   displayFn(entidade: any): string {
