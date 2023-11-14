@@ -9,11 +9,14 @@
 
 
 
-
+<!--
     <input type="date" name="myDate" [(ngModel)]="levantamentoFormatado">
-
+-->
     <div style="display: inline-block;">  
-        <app-data-picker></app-data-picker>
+        <app-data-picker  type="date" name="myDate" 
+        [data]="levantamentoFormatado"
+        (ValueFieldComponent)="levantamentoFormatado"
+        ></app-data-picker>
     </div>
 
 
