@@ -89,13 +89,25 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
 
 
+
+
+  
+get levantamentoFormatado(): Date {
+  return this._levantamento;
+}
+
+set levantamentoFormatado(value: Date) {
+  this._levantamento = value;
+}
+
+  /*
   get levantamentoFormatado() {
   return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd') || '';
   }
   set levantamentoFormatado(value: string) {
     this._levantamento = new Date(value);
   }
-     
+  */
 
 
 
