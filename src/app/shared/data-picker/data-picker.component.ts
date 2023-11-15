@@ -10,55 +10,15 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   templateUrl: './data-picker.component.html',
   styleUrls: ['./data-picker.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => DataPickerComponent),
-      multi: true
-    }
-  ]
+  imports: [MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule],
 })
-export class DataPickerComponent implements ControlValueAccessor {
-  @Output() dataLevantamento = new EventEmitter<Date>(); 
-  @Input() data: Date = new Date();
-  
-  minDate: Date;
-  maxDate: Date;
-  ValueFieldComponent!: Date;
-  static ValueFieldComponent: Date;
+export class DataPickerComponent {
 
-  constructor() {
-    const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 50, 0, 1);
-    this.maxDate = new Date(currentYear + 10, 11, 31);
+  @Input() dataDoLevantameto: Date = new Date();  
+  @Output() dataSelecionada = new EventEmitter<string>(); 
+
+  onDateChange(event: { value: string | undefined; }) {
+    this.dataSelecionada.emit(event.value);
   }
 
-  ngOnInit(){
-    this.data = DataPickerComponent.ValueFieldComponent;
-    if(this.data){
-      this.emitData();
-    }
-  }
-
-  emitData(): void {
-    this.dataLevantamento.emit(this.data);
-  }
-
-  // Métodos da interface ControlValueAccessor
-  writeValue(obj: any): void {
-    this.data = obj;
-  }
-
-  registerOnChange(fn: any): void {
-    this.dataLevantamento.subscribe(fn);
-  }
-
-  registerOnTouched(fn: any): void {
-    // Você pode implementar este método se precisar
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    // Você pode implementar este método se precisar
-  }
 }
