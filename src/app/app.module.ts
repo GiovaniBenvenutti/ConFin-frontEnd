@@ -29,6 +29,7 @@ import { InitialScreenComponent } from './faces/initial-screen/initial-screen.co
 
 import { DataPickerComponent } from './shared/data-picker/data-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { TextFieldComponent } from './shared/text-field/text-field.component';
 import {MatInputModule} from '@angular/material/input';
@@ -78,20 +79,15 @@ import { DatePipe } from '@angular/common';
     AutocompleteFilterExample,
     MatAutocompleteModule,
 
-    DataPickerComponent,
-    MatDatepickerModule,
+    DataPickerComponent, MatDatepickerModule, MatNativeDateModule,
 
-    CardBoxComponent,
-    MatCardModule,
+    CardBoxComponent, MatCardModule,
 
-    DialogBoxComponent,
-    MatDialogModule,
+    DialogBoxComponent, MatDialogModule,
 
-    MyButtonComponent,
-    MatButtonModule,
+    MyButtonComponent, MatButtonModule,
 
-    SelectDropComponent,
-    MatSelectModule,
+    SelectDropComponent, MatSelectModule,
 
     SpinnerComponent,
     MatProgressSpinnerModule,
