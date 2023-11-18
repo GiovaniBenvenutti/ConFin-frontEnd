@@ -77,7 +77,6 @@ export class PrincipalPatrimonioComponent implements OnInit {
     console.log(this.pickedEntidade);
   }
 
-
   entidadeSelecionada(ent: Entidade) {
     this.patrimonio.identidade = ent.identidade;
   }  
@@ -92,12 +91,12 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
 
 
-  /*
-  onDataSelecionada(data: string) {
+  
+  onDataSelecionada(data: Date) {
     console.log(data);  // faz algo com a data
     alert(data);
   }
-  */
+  
   
   get levantamentoFormatado() {
   return this.datePipe.transform(this._levantamento, 'yyyy-MM-dd') || '';

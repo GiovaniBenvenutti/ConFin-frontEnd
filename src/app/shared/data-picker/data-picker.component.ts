@@ -12,13 +12,32 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule],
 })
-export class DataPickerComponent {
-
+export class DataPickerComponent implements ControlValueAccessor {
   @Input() dataDoLevantameto: Date = new Date();  
-  @Output() dataSelecionada = new EventEmitter<string>(); 
+  @Output() dataSelecionada = new EventEmitter<Date>();
 
-  onDateChange(event: { value: string | undefined; }) {
-    this.dataSelecionada.emit(event.value);
+  // Função para armazenar a alteração do valor
+  private onChange = (value: any) => {};
+
+  // Função para armazenar o toque no controle
+  private onTouched = () => {};
+
+  writeValue(value: any): void {
+    this.dataDoLevantameto = value;
   }
 
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  // Método chamado quando a data é alterada
+  onDateChange(event: Date) {
+    this.dataDoLevantameto = event;
+    this.onChange(event.valueOf);
+    this.onTouched();
+  }
 }

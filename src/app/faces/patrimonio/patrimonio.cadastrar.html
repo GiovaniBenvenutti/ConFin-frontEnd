@@ -8,18 +8,19 @@
 
 
 
+
+    <div style="display: inline-block;">  
+        <app-data-picker
+            input type="date" name="myDate"
+            [dataDoLevantameto]="patrimonio.levantamento"
+            (dataSelecionada)="onDataSelecionada($event)"
+        ></app-data-picker>
+
+    </div>
+    
     <!--
-        <div style="display: inline-block;">  
-            <app-data-picker
-                [dataDoLevantameto]="_levantamento"
-                (dataSelecionada)="onDataSelecionada($event)"
-            ></app-data-picker>
-
-        </div>
-    -->
-
     <input type="date" name="myDate" [(ngModel)]="levantamentoFormatado">
-
+    -->
 
 
 
