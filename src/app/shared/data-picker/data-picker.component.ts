@@ -37,10 +37,12 @@ export class DataPickerComponent implements ControlValueAccessor {
 
   // Método chamado quando a data é alterada
   onDateChange(event: MatDatepickerInputEvent<Date>) {
-    if (event.value) {
+    if (event.value) {      
+      //alert('oi');
       this.dataDoLevantameto = event.value;
       this.onChange(event.value);
       this.onTouched();
+      this.dataSelecionada.emit(this.dataDoLevantameto);
     }
   }
   

@@ -6,25 +6,14 @@
         (entidadeSelecionada)="entidadeSelecionada($event)"></autocomplete>        
     </div>
 
-
-
-
     <div style="display: inline-block;">  
         <app-data-picker
             input type="date" name="myDate"
             [dataDoLevantameto]="patrimonio.levantamento"
             (dataSelecionada)="onDataSelecionada($event)"
         ></app-data-picker>
-
-    </div>
-    
-    <!--
-    <input type="date" name="myDate" [(ngModel)]="levantamentoFormatado">
-    -->
-
-
-
-    
+    </div>    
+        
 
     <input type="number" step="0.01" name="myNumber" [(ngModel)]="patrimonio.valor">
     
