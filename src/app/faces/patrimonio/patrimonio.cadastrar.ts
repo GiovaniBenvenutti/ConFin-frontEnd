@@ -90,7 +90,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
     
     alert(data);
       this.patrimonio.levantamento = data;
-      this.datePipe.transform(this.patrimonio.levantamento, 'yyyy-MM-dd') || ''
+      this.datePipe.transform(this.patrimonio.levantamento, 'yyyy-MM-dd') || '';
   }
   
   
