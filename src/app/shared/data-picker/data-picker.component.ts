@@ -22,6 +22,7 @@ export class DataPickerComponent implements ControlValueAccessor {
 
   // Função para armazenar o toque no controle
   private onTouched = () => {};
+  datePipe: any;
 
   writeValue(value: any): void {
     this.dataDoLevantameto = value;
@@ -37,9 +38,10 @@ export class DataPickerComponent implements ControlValueAccessor {
 
   // Método chamado quando a data é alterada
   onDateChange(event: MatDatepickerInputEvent<Date>) {
-    if (event.value) {      
+    if (event.value != undefined) {      
       //alert('oi');
       this.dataDoLevantameto = event.value;
+      //this.datePipe.transform(this.dataDoLevantameto, 'yyyy-MM-dd') || '';
       this.onChange(event.value);
       this.onTouched();
       this.dataSelecionada.emit(this.dataDoLevantameto);

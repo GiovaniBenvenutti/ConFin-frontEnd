@@ -87,17 +87,14 @@ export class PrincipalPatrimonioComponent implements OnInit {
   
 
   onDataSelecionada(data: Date) {
-    
-    alert(data);
       this.patrimonio.levantamento = data;
       this.datePipe.transform(this.patrimonio.levantamento, 'yyyy-MM-dd') || '';
   }
   
+
+
+
   
-
-
-
-
   
   limparCampo() {
     this.autocomplete.limpar();
