@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTable } from '@angular/material/table';
 import { Patrimonio } from 'src/app/model/patrimonio.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-table',
@@ -24,7 +25,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatTable) table!: MatTable<any>;
 
-  constructor() {};
+  
 
   selecionarElement(element: any): void {
     this.elementSelected.emit(element);
@@ -38,19 +39,25 @@ export class TableComponent implements OnInit, AfterViewInit {
     return razao;
   }
 
+  
 
+  // Adicione isso no construtor da sua classe
+  constructor(private datePipe: DatePipe) { }
+  
   ngOnInit() {  
     // Limpa o array columns
     this.columns = [];
   
-     // Preenche o array columns dinamicamente
-     for (let column of this.displayedColumns) {
+    // Preenche o array columns dinamicamente
+    for (let column of this.displayedColumns) {
       this.columns.push({
         columnDef: column,
         header: column,
         cell: (element: any) => {
           if (column === 'identidade') {
             return this.achaRazao(element[column]);            
+          } else if (element[column] instanceof Date) {
+            return this.datePipe.transform(element[column], 'yyyy-MM-dd');
           } else {
             return `${element[column]}`;
           }
@@ -58,11 +65,12 @@ export class TableComponent implements OnInit, AfterViewInit {
       });    
     }
     this.displayedColumns.push('selecionar');      
-    
+  
     // Atualiza os dados da tabela
     let dadosAtualizados = this.dataSource;
     this.dataSource = dadosAtualizados;
   }
+  
 
   ngAfterViewInit() {
     // Renderiza as linhas da tabela
