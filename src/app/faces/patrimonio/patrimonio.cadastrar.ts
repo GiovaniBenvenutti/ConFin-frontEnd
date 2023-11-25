@@ -94,7 +94,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
 
 
-  
+
   
   limparCampo() {
     this.autocomplete.limpar();
@@ -132,6 +132,7 @@ export class PrincipalPatrimonioComponent implements OnInit {
       this.tabela = true;
       this.limparCampo();
       alert('Patrimonio editada com sucesso !');
+      //this.selecionar();
     });
   }
 

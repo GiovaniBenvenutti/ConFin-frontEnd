@@ -5,6 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-data-picker',
@@ -17,12 +18,15 @@ export class DataPickerComponent implements ControlValueAccessor {
   @Input() dataDoLevantameto: Date = new Date();  
   @Output() dataSelecionada = new EventEmitter<Date>();
 
+  constructor(private datePipe: DatePipe) { }
+
+
   // Função para armazenar a alteração do valor
   private onChange = (value: any) => {};
 
   // Função para armazenar o toque no controle
   private onTouched = () => {};
-  datePipe: any;
+  //datePipe: any;
 
   writeValue(value: any): void {
     this.dataDoLevantameto = value;
@@ -38,10 +42,9 @@ export class DataPickerComponent implements ControlValueAccessor {
 
   // Método chamado quando a data é alterada
   onDateChange(event: MatDatepickerInputEvent<Date>) {
-    if (event.value != undefined) {      
-      //alert('oi');
+    if (event.value != undefined) {   
       this.dataDoLevantameto = event.value;
-      //this.datePipe.transform(this.dataDoLevantameto, 'yyyy-MM-dd') || '';
+      this.datePipe.transform(this.dataDoLevantameto, 'yyyy-MM-dd') || '';
       this.onChange(event.value);
       this.onTouched();
       this.dataSelecionada.emit(this.dataDoLevantameto);
