@@ -58,6 +58,7 @@ import { LoadingInterceptor } from './servico/loading.interceptor';
 import { ErrorInterceptor } from './servico/error.interceptor';
 
 import { DatePipe } from '@angular/common';
+//import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { DatePipe } from '@angular/common';
     PrincipalEntidadeComponent,
     PrincipalPatrimonioComponent,
     InitialScreenComponent,    
-    AuthComponent,        
+    AuthComponent,  
+    
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,9 @@ import { DatePipe } from '@angular/common';
     MatTooltipModule,
 
     ValueFieldComponent,
-    MatFormFieldModule
+    MatFormFieldModule,
+
+    
   ],
   providers: [
     {
