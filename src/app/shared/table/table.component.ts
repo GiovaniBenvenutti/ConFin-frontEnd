@@ -56,8 +56,8 @@ export class TableComponent implements OnInit, AfterViewInit {
         cell: (element: any) => {
           if (column === 'identidade') {
             return this.achaRazao(element[column]);            
-          } else if (element[column] instanceof Date) {
-            return this.datePipe.transform(element[column], 'yyyy-MM-dd');
+          } else if (column === 'levantamento') {
+            return this.datePipe.transform(element[column], 'dd-MM-yyyy');
           } else {
             return `${element[column]}`;
           }
