@@ -20,7 +20,6 @@ import 'moment/locale/fr';
 import { ControlValueAccessor, FormsModule } from '@angular/forms';
 
 
-
 @Component({
   selector: 'app-data-picker',
   templateUrl: './data-picker.component.html',
