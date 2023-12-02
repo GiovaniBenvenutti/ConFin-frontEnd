@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output, forwardRef} from '@angular/core';
 import {MatNativeDateModule} from '@angular/material/core';
-import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from '@angular/forms';
+
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
 
@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import 'moment/locale/ja';
 import 'moment/locale/fr';
+import { ControlValueAccessor, FormsModule } from '@angular/forms';
 
 
 
