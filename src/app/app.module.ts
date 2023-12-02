@@ -29,7 +29,7 @@ import { InitialScreenComponent } from './faces/initial-screen/initial-screen.co
 
 import { DataPickerComponent } from './shared/data-picker/data-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 
 import { TextFieldComponent } from './shared/text-field/text-field.component';
 import {MatInputModule} from '@angular/material/input';
@@ -114,7 +114,13 @@ import { DatePipe } from '@angular/common';
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
       multi: true
-    },    
+    }, 
+    
+    {
+      provide: MAT_DATE_LOCALE, useValue: 'pt-BR',
+    },
+
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
