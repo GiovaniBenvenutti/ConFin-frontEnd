@@ -87,9 +87,16 @@ export class DataPickerComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     this.updateCloseButtonLabel('カレンダーを閉じる');
+    this.formataData();
   }
 
   french() {
+    this._locale = 'fr';
+    this._adapter.setLocale(this._locale);
+    this.updateCloseButtonLabel('Fermer le calendrier');
+  }
+
+  formataData() {
     this._locale = 'fr';
     this._adapter.setLocale(this._locale);
     this.updateCloseButtonLabel('Fermer le calendrier');

@@ -1,12 +1,13 @@
 <div class="dataPicker">
   <mat-form-field>
+    <mat-label>lançamento</mat-label>
     <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)" 
     [(ngModel)]="dataDoLevantameto" placeholder="Escolha uma data" >
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
         
-
+<!--
 
   <mat-form-field>
     <mat-label>Different locale</mat-label>
@@ -16,11 +17,6 @@
     <mat-datepicker #dp></mat-datepicker>
   </mat-form-field>
   <button mat-button (click)="french()">Dynamically switch to French</button>
-  
-
-
-
-
-
+-->
 
 </div>
