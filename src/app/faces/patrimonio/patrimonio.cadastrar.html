@@ -14,13 +14,22 @@
         ></app-data-picker>
     </div>    
         
+
+
     <div style="display: inline-block;">
-        <app-value-field></app-value-field>
+        <app-value-field
+        [valorlevantado]="patrimonio.valor"
+        
+        ></app-value-field>
     </div>
 
 
     <input type="number" step="0.01" name="myNumber" [(ngModel)]="patrimonio.valor">
     
+
+
+
+
     <input
         type="button"
         value="Cadastrar"
