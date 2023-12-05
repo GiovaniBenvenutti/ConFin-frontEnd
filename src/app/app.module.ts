@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -36,6 +37,8 @@ import {MatInputModule} from '@angular/material/input';
 
 import { ValueFieldComponent } from './shared/value-field/value-field.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
+import { PasswordComponent } from './shared/password/password.component';
 
 import { MyButtonComponent } from './shared/my-button/my-button.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -106,7 +109,7 @@ import { DatePipe } from '@angular/common';
 
     ValueFieldComponent,
     MatFormFieldModule,
-
+    PasswordComponent,
     
   ],
   providers: [
@@ -114,13 +117,10 @@ import { DatePipe } from '@angular/common';
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
       multi: true
-    }, 
-    
+    },     
     {
       provide: MAT_DATE_LOCALE, useValue: 'pt-BR',
     },
-
-
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,

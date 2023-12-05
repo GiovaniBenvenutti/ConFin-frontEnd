@@ -35,8 +35,6 @@ import { ControlValueAccessor, FormsModule } from '@angular/forms';
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ],
 })
-
-
 export class DataPickerComponent implements ControlValueAccessor, OnInit {
   @Input() dataDoLevantameto: Date = new Date();  
   @Output() dataSelecionada = new EventEmitter<Date>();
