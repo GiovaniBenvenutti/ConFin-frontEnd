@@ -88,10 +88,12 @@ export class PrincipalPatrimonioComponent implements OnInit {
 
   onDataSelecionada(data: Date) {
       this.patrimonio.levantamento = data;
-      this.datePipe.transform(this.patrimonio.levantamento, 'yyyy-MM-dd') || '';
+      this.datePipe.transform(this.patrimonio.levantamento, 'yyyy-MM-dd') || '';      //   ?????????
   }
   
-
+  onNovoValor(n:number){
+      this.patrimonio.valor = n;
+  }
 
 
 

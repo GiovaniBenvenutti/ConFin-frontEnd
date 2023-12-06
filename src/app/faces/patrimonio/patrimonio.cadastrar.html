@@ -18,14 +18,15 @@
 
     <div style="display: inline-block;">
         <app-value-field
+        input type="number" step="0.01" name="myNumber"
         [valorlevantado]="patrimonio.valor"
-        
+        (valornovo)="onNovoValor($event)"
         ></app-value-field>
     </div>
 
-
+<!--
     <input type="number" step="0.01" name="myNumber" [(ngModel)]="patrimonio.valor">
-    
+-->
 
 
 
