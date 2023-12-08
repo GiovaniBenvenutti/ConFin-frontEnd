@@ -17,7 +17,7 @@ button[type="menuAbas"]{
     width: 125px;
     height: 35px;
     vertical-align: text-top;
-    background-color: white;
+    background-color: whitesmoke;
     color: darkgrey;
     font-weight: bold;
     font-size: 10px;    
@@ -34,7 +34,7 @@ button:hover[type="menuAbas"]{
 /* CSS */
 button[type="menuAbas"].ativo{
     /* Cor do botão quando o link do roteador está ativo */
-    background-color:rgb(250, 250, 250);  
+    background-color: white;  /*(250, 250, 250); */  
     border-bottom: none;
     color: black;
 }

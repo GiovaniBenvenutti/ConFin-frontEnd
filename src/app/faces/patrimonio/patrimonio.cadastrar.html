@@ -1,5 +1,6 @@
 
 <form class="formGeral">
+
     <div style="padding: 0px; display: inline-block">
         <autocomplete *ngIf="entidadesArray" 
         [entidades]="entidadesArray"
@@ -23,7 +24,12 @@
     </div>
 
 
+    
+    <button mat-stroked-button *ngIf="btnCadastro" class="btn btn-primary" 
+        (click)="cadastrar()" style="margin-left: 0px" >Cadastrar</button>
 
+    <!--
+    <button mat-flat-button>Basic</button>
 
     <input
         type="button"
@@ -31,35 +37,56 @@
         *ngIf="btnCadastro"        
         class="btn btn-primary"
         (click)="cadastrar()">
+    -->
 
+    <button mat-stroked-button *ngIf="!buscando && btnCadastro" class="btn btn-primary" 
+        (click)="buscar()" style="margin-left: 5px" >Buscar</button>
+
+    <!--
     <input
         type="button"
         value="Buscar"
         *ngIf= "!buscando && btnCadastro"
         class="btn btn-primary"
         (click)="buscar()">
-            
+    -->
+
+    <button mat-stroked-button *ngIf="!btnCadastro" class="btn btn-warning" 
+        (click)="editar()" style="margin-left: 5px" >Alterar</button>
+
+    <!--
     <input
         type="button"
         value="Alterar"
         *ngIf="!btnCadastro"        
         class="btn btn-warning"
         (click)="editar()">
+    -->
 
+    <button mat-stroked-button *ngIf="!btnCadastro" class="btn btn-danger" 
+        (click)="remover()" style="margin-left: 5px" >Remover</button>
+
+    <!--
     <input
         type="button"
         value="Remover"
         *ngIf="!btnCadastro"        
         class="btn btn-danger"
         (click)="remover()">
+    -->
 
+    <button mat-stroked-button *ngIf="!btnCadastro || buscando" class="btn btn-secondary" 
+        (click)="cancelar()" style="margin-left: 5px" >Cancelar</button>
+
+    <!--
     <input
         type="button"
         value="Cancelar"
         *ngIf="!btnCadastro || buscando"        
         class="btn btn-secondary"
         (click)="cancelar()">
-    
+    -->
+
 </form>
 
 <div>
