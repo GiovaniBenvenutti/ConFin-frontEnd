@@ -26,7 +26,7 @@
 
     
     <button mat-stroked-button *ngIf="btnCadastro" class="btn btn-primary" 
-        (click)="cadastrar()" style="margin-left: 0px" >Cadastrar</button>
+        (click)="cadastrar()" style="margin-left: 0px; margin-bottom: 15px;" >Cadastrar</button>
 
     <!--
     <button mat-flat-button>Basic</button>
@@ -40,7 +40,7 @@
     -->
 
     <button mat-stroked-button *ngIf="!buscando && btnCadastro" class="btn btn-primary" 
-        (click)="buscar()" style="margin-left: 5px" >Buscar</button>
+        (click)="buscar()" style="margin-left: 5px; margin-bottom: 15px;" >Buscar</button>
 
     <!--
     <input
@@ -52,7 +52,7 @@
     -->
 
     <button mat-stroked-button *ngIf="!btnCadastro" class="btn btn-warning" 
-        (click)="editar()" style="margin-left: 5px" >Alterar</button>
+        (click)="editar()" style="margin-left: 5px; margin-bottom: 15px;" >Alterar</button>
 
     <!--
     <input
@@ -64,7 +64,7 @@
     -->
 
     <button mat-stroked-button *ngIf="!btnCadastro" class="btn btn-danger" 
-        (click)="remover()" style="margin-left: 5px" >Remover</button>
+        (click)="remover()" style="margin-left: 5px; margin-bottom: 15px;" >Remover</button>
 
     <!--
     <input
@@ -76,7 +76,7 @@
     -->
 
     <button mat-stroked-button *ngIf="!btnCadastro || buscando" class="btn btn-secondary" 
-        (click)="cancelar()" style="margin-left: 5px" >Cancelar</button>
+        (click)="cancelar()" style="margin-left: 5px; margin-bottom: 15px;" >Cancelar</button>
 
     <!--
     <input
